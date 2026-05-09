@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | Inletix</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+body {
+    background-color: #0B0C10;
+    color: #e3e2e8;
+}
+.glass-card {
+    background: rgba(31, 40, 51, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(69, 162, 158, 0.2);
+}
+.glass-card:hover {
+    border-color: #00e3fd;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+}
+.primary-glow:hover {
+    box-shadow: 0px 0px 15px rgba(0, 229, 255, 0.3);
+}
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "secondary-container": "#00e3fd",
+        "surface-container-lowest": "#0d0e12",
+        "surface-container-low": "#1a1b20",
+        "surface": "#121317",
+        "on-surface": "#e3e2e8",
+        "on-surface-variant": "#c4c5d9",
+        "outline-variant": "#434656",
+        "primary-container": "#1f51ff",
+        "on-primary-container": "#e1e4ff",
+        "primary": "#b9c3ff"
+      },
+      borderRadius: {
+        "lg": "0.25rem",
+        "xl": "0.5rem"
+      },
+      spacing: {
+        "margin-mobile": "16px",
+        "margin-desktop": "48px",
+        "container-max": "1280px",
+        "gutter": "24px"
+      },
+      fontFamily: {
+        "body-md": ["IBM Plex Sans"],
+        "body-lg": ["IBM Plex Sans"],
+        "headline-lg": ["IBM Plex Sans"],
+        "headline-md": ["IBM Plex Sans"],
+        "label-sm": ["JetBrains Mono"],
+        "display-lg": ["IBM Plex Sans"]
+      },
+      fontSize: {
+        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+        "display-lg": ["48px", {"lineHeight": "56px", "fontWeight": "700"}]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="font-body-md text-on-surface bg-surface-container-lowest">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface" href="code.html">Inletix</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="code.html#home">Home</a>
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary font-bold" href="services.html">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="code.html#contact">Contact</a>
+</nav>
+<a class="px-6 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow transition-all duration-300 inline-block" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Get Started</a>
+</div>
+</header>
+<main>
+<section class="relative pt-32 pb-20 overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,227,253,0.18),transparent_34%),linear-gradient(180deg,#121317,#0d0e12)]"></div>
+<div class="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Our Services</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 max-w-3xl">IT services built for websites, software, ecommerce, and business growth.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Choose the service you need, view details, and contact us directly through WhatsApp to start your project.</p>
+</div>
+</section>
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid md:grid-cols-2 gap-gutter">
+<a class="glass-card rounded-xl p-8 flex flex-col min-h-[320px] hover:-translate-y-1 transition-all" href="web-development.html">
+<span class="material-symbols-outlined text-secondary-container text-5xl mb-6">web</span>
+<h2 class="font-headline-md text-headline-md mb-4">Web Development</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Responsive business websites, landing pages, ecommerce stores, and SEO-ready web experiences.</p>
+<ul class="space-y-2 text-on-surface-variant mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">check_circle</span> Responsive website design</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">check_circle</span> Shopify and WordPress builds</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">check_circle</span> Speed and SEO optimization</li>
+</ul>
+<span class="mt-auto text-secondary-container font-bold">View details</span>
+</a>
+<a class="glass-card rounded-xl p-8 flex flex-col min-h-[320px] hover:-translate-y-1 transition-all" href="software-development.html">
+<span class="material-symbols-outlined text-secondary-container text-5xl mb-6">terminal</span>
+<h2 class="font-headline-md text-headline-md mb-4">Software Development</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">Custom business tools, dashboards, admin panels, automation, APIs, and scalable applications.</p>
+<ul class="space-y-2 text-on-surface-variant mb-8">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">check_circle</span> Custom dashboards and panels</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">check_circle</span> API and payment integrations</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">check_circle</span> Workflow automation</li>
+</ul>
+<span class="mt-auto text-secondary-container font-bold">View details</span>
+</a>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter mt-gutter">
+<div class="glass-card rounded-xl p-8">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-5">shopping_bag</span>
+<h3 class="font-headline-md text-headline-md mb-3">Ecommerce Setup</h3>
+<p class="text-on-surface-variant">Product pages, payment setup, checkout flow, and store optimization.</p>
+</div>
+<div class="glass-card rounded-xl p-8">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-5">support_agent</span>
+<h3 class="font-headline-md text-headline-md mb-3">IT Support</h3>
+<p class="text-on-surface-variant">Bug fixes, updates, troubleshooting, maintenance, and launch support.</p>
+</div>
+<div class="glass-card rounded-xl p-8">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-5">auto_awesome</span>
+<h3 class="font-headline-md text-headline-md mb-3">Automation</h3>
+<p class="text-on-surface-variant">Forms, WhatsApp flows, reports, customer messages, and business processes.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="py-8 bg-surface border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between gap-4 text-on-surface-variant">
+<p>© 2026 Inletix. Digital Infrastructure Excellence.</p>
+<a class="hover:text-primary transition-colors" href="mailto:mahmudulhasansheepu@gmail.com">mahmudulhasansheepu@gmail.com</a>
+</div>
+</footer>
+</body>
+</html>
