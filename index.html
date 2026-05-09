@@ -153,6 +153,33 @@
                 margin-bottom: 0 !important;
                 flex: 0 0 auto;
             }
+            #about .about-image {
+                display: none !important;
+            }
+            #about .about-content {
+                width: 100% !important;
+            }
+            #about .text-headline-lg {
+                font-size: 30px !important;
+                line-height: 38px !important;
+                margin-bottom: 28px !important;
+            }
+            #about .text-body-lg {
+                font-size: 17px !important;
+                line-height: 28px !important;
+            }
+            #about .about-stats {
+                gap: 22px !important;
+            }
+            #about .about-counter {
+                font-size: 34px !important;
+                line-height: 42px !important;
+            }
+            #about .font-label-sm {
+                font-size: 11px !important;
+                line-height: 16px !important;
+                letter-spacing: 0.08em !important;
+            }
         }
     </style>
 <script id="tailwind-config">
@@ -478,12 +505,12 @@
 <section class="py-24 bg-surface-container-low" id="about">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="flex flex-col lg:flex-row gap-20 items-center">
-<div class="flex-1 relative">
+<div class="flex-1 relative about-image">
 <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-secondary-container"></div>
 <img class="rounded-lg shadow-2xl relative z-10" data-alt="A modern, high-end corporate office lobby with glass walls, sleek minimalist furniture, and architectural lighting. The environment is clean and professional, featuring a palette of obsidian grays and bright accents. Professional technical leads are seen in the background engaged in collaborative work, reflecting the Inletix brand's focus on precision, reliability, and architectural stability in the tech space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9eccrlh_OehF2g3rQYPIR-Sa1yX4IPqR6bQzerb5ndI5EucKz9Tt9VAvl9zgAHxEAmM3AIXjC1lvnBv8uGk4haR8eDl6dJ0A6C0L6AXNohsCvLHCZOMuNgvacPFz3SGgYdbMKxP2QmNPhN07H5oLSDT4y-K0w7jRv5a9g9u6pP-J_NlaU3w4qCOlaIfQWg9FM5JEOxq2A9iFfdZf0D_nTZxW7HBoQKSDO37KGJaWyZ6zb5iMw0aOML5yEaAgSIb2TquLMrw48"/>
 <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-secondary-container"></div>
 </div>
-<div class="flex-1">
+<div class="flex-1 about-content">
 <h2 class="font-headline-lg text-headline-lg mb-8">Building Reliable IT Solutions for Growing Businesses</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
                             For the last 2 years, Inletix has been helping businesses build stronger digital systems through web development, custom software, ecommerce solutions, and practical technical support.
@@ -491,13 +518,13 @@
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
                             We focus on clear communication, clean execution, and dependable delivery so every project supports real business growth.
                         </p>
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-2 gap-8 about-stats">
 <div>
-<div class="font-display-lg text-display-lg text-primary mb-2">2+</div>
+<div class="font-display-lg text-display-lg text-primary mb-2 about-counter" data-count="2">0+</div>
 <div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Years Working</div>
 </div>
 <div>
-<div class="font-display-lg text-display-lg text-primary mb-2">50+</div>
+<div class="font-display-lg text-display-lg text-primary mb-2 about-counter" data-count="50">0+</div>
 <div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Projects Supported</div>
 </div>
 </div>
@@ -610,6 +637,40 @@
         }
 
         runAutomationTypewriter();
+
+        function animateAboutCounters() {
+            const counters = document.querySelectorAll('.about-counter');
+            counters.forEach((counter) => {
+                const target = Number(counter.dataset.count || 0);
+                const duration = 1100;
+                const start = performance.now();
+
+                const update = (now) => {
+                    const progress = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    counter.textContent = `${Math.round(target * eased)}+`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                };
+
+                requestAnimationFrame(update);
+            });
+        }
+
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            const aboutObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    animateAboutCounters();
+                    observer.disconnect();
+                });
+            }, { threshold: 0.35 });
+
+            aboutObserver.observe(aboutSection);
+        }
 
         function sendWhatsAppMessage(event) {
             event.preventDefault();
