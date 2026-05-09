@@ -12,7 +12,7 @@
         body {
             background-color: #0B0C10; /* Brand Obsidian Base */
             color: #e3e2e8;
-        }  https://github.com/mh-sheepu/Inletix
+        }
         .glass-card {
             background: rgba(31, 40, 51, 0.8);
             backdrop-filter: blur(12px);
@@ -84,6 +84,40 @@
             }
             to {
                 transform: translateX(-50%);
+            }
+        }
+        @media (max-width: 767px) {
+            .text-display-lg {
+                font-size: 36px !important;
+                line-height: 44px !important;
+            }
+            .py-24 {
+                padding-top: 64px !important;
+                padding-bottom: 64px !important;
+            }
+            .mb-16 {
+                margin-bottom: 32px !important;
+            }
+            .gap-gutter {
+                gap: 16px !important;
+            }
+            .min-h-\[300px\] {
+                min-height: auto !important;
+            }
+            .p-8 {
+                padding: 24px !important;
+            }
+            .typewriter-code {
+                min-height: 190px;
+                font-size: 12px !important;
+                line-height: 20px !important;
+            }
+            #services .glass-card .p-6 {
+                padding: 24px !important;
+            }
+            #services .material-symbols-outlined,
+            #development .material-symbols-outlined {
+                margin-bottom: 18px !important;
             }
         }
     </style>
