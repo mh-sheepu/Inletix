@@ -76,6 +76,17 @@
         #home {
             min-height: 760px;
         }
+        .future-letter {
+            background:
+                linear-gradient(90deg, rgba(0, 227, 253, 0.28) 1px, transparent 1px) 44px 0 / 1px 100% no-repeat,
+                radial-gradient(circle at 22px 30px, rgba(227, 226, 232, 0.12) 0 3px, transparent 4px),
+                linear-gradient(180deg, rgba(31, 40, 51, 0.92), rgba(13, 14, 18, 0.96));
+            background-size: auto, 1px 34px, auto;
+        }
+        .future-letter-text {
+            min-height: 300px;
+            white-space: pre-wrap;
+        }
         @keyframes cursor-blink {
             0%, 45% {
                 opacity: 1;
@@ -237,6 +248,19 @@
             #contact #whatsapp-send-btn {
                 padding-top: 13px !important;
                 padding-bottom: 13px !important;
+            }
+            .future-letter {
+                background:
+                    linear-gradient(90deg, rgba(0, 227, 253, 0.25) 1px, transparent 1px) 28px 0 / 1px 100% no-repeat,
+                    radial-gradient(circle at 14px 26px, rgba(227, 226, 232, 0.12) 0 2px, transparent 3px),
+                    linear-gradient(180deg, rgba(31, 40, 51, 0.92), rgba(13, 14, 18, 0.96));
+                background-size: auto, 1px 30px, auto;
+            }
+            .future-letter-text {
+                min-height: 360px;
+                font-size: 15px !important;
+                line-height: 28px !important;
+                padding-left: 24px !important;
             }
         }
     </style>
@@ -561,6 +585,21 @@
 </div>
 </div>
 </section>
+<!-- Future Letter Section -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-10">
+<p class="font-label-sm text-label-sm uppercase text-on-surface-variant mb-4">A note from Inletix</p>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">To the businesses building for tomorrow</h2>
+</div>
+<div class="future-letter glass-card rounded-xl p-8 md:p-12 shadow-2xl max-w-5xl mx-auto">
+<pre class="code-line future-letter-text text-on-surface-variant text-body-md leading-8 pl-10"><code id="future-letter-type"></code><span class="typewriter-cursor"></span></pre>
+<div class="flex justify-end mt-8">
+<span class="font-label-sm text-label-sm uppercase text-secondary-container tracking-widest">Inletix</span>
+</div>
+</div>
+</div>
+</section>
 <!-- About Us Section -->
 <section class="py-24 bg-surface-container-low" id="about">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
@@ -730,6 +769,46 @@
             }, { threshold: 0.35 });
 
             aboutObserver.observe(aboutSection);
+        }
+
+        const futureLetterTarget = document.getElementById('future-letter-type');
+        const futureLetterText = [
+            'Dear future-focused business,',
+            '',
+            'Technology is moving fast, but growth still belongs to the teams who build with clarity.',
+            '',
+            'At Inletix, we create websites, software, ecommerce systems, and automation that help your business stay ready for what comes next. The goal is not only to look modern. The goal is to make every click, message, order, and workflow feel simple, connected, and dependable.',
+            '',
+            'The future will reward businesses that move faster, serve customers better, and use digital systems with confidence. That is the future we help you build.'
+        ].join('\n');
+
+        function typeFutureLetter() {
+            if (!futureLetterTarget || futureLetterTarget.dataset.typed === 'true') return;
+            futureLetterTarget.dataset.typed = 'true';
+            let index = 0;
+
+            const typeNext = () => {
+                futureLetterTarget.textContent = futureLetterText.slice(0, index);
+                index += 1;
+
+                if (index <= futureLetterText.length) {
+                    window.setTimeout(typeNext, 24);
+                }
+            };
+
+            typeNext();
+        }
+
+        if (futureLetterTarget) {
+            const letterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    typeFutureLetter();
+                    observer.disconnect();
+                });
+            }, { threshold: 0.25 });
+
+            letterObserver.observe(futureLetterTarget);
         }
 
         function sendWhatsAppMessage(event) {
