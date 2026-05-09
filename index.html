@@ -181,16 +181,28 @@
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm">
 <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<div class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface dark:text-on-surface">Inletix</div>
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface dark:text-on-surface" href="index.html">Inletix</a>
 <nav class="hidden md:flex items-center gap-8">
 <a class="font-body-md text-body-md text-primary dark:text-primary border-b-2 border-primary font-bold" href="#home">Home</a>
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="services.html">Services</a>
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a>
 </nav>
-<a class="px-6 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow transition-all duration-300 inline-block" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">
+<a class="hidden md:inline-block px-6 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow transition-all duration-300" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">
                 Get Started
             </a>
+<button aria-label="Open mobile menu" class="md:hidden w-10 h-10 rounded-lg border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary-container hover:border-secondary-container transition-colors" onclick="toggleMobileMenu()" type="button">
+<span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
+</button>
+</div>
+<div class="hidden md:hidden border-t border-outline-variant/20 bg-surface/95 backdrop-blur-xl" id="mobile-menu">
+<nav class="flex flex-col px-margin-mobile py-4 gap-4">
+<a class="font-body-md text-body-md text-primary font-bold" href="index.html#home">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="services.html">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html#contact">Contact</a>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Get Started</a>
+</nav>
 </div>
 </header>
 <main>
@@ -488,6 +500,15 @@
 </div>
 </footer>
 <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            if (!menu || !icon) return;
+
+            menu.classList.toggle('hidden');
+            icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+        }
+
         const typewriterTarget = document.getElementById('automation-typewriter');
         const automationCode = [
             "01  const client = 'Inletix partner';",
