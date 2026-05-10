@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Business automation by Inletix — workflow automation, WhatsApp bots, API integrations, and scheduled tasks. Save hours every week with smart, reliable automation."/>
+<meta property="og:title" content="Automation | Inletix"/>
+<meta property="og:description" content="Automate repetitive tasks and save hours every week. Custom workflows, bots, and integrations from $199."/>
+<meta property="og:type" content="website"/>
+<title>Automation | Inletix</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+body {
+    background-color: #0B0C10;
+    color: #e3e2e8;
+}
+.glass-card {
+    background: rgba(31, 40, 51, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(69, 162, 158, 0.2);
+}
+.glass-card:hover {
+    border-color: #00e3fd;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.1);
+}
+.glass-card-featured {
+    background: rgba(31, 40, 51, 0.9);
+    backdrop-filter: blur(12px);
+    border: 2px solid #00e3fd;
+    box-shadow: 0 0 24px rgba(0, 227, 253, 0.15);
+}
+.primary-glow:hover {
+    box-shadow: 0px 0px 15px rgba(0, 229, 255, 0.3);
+}
+.automation-grid {
+    background-image:
+        linear-gradient(rgba(0,227,253,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,227,253,0.07) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+@media (max-width: 767px) {
+    .text-display-lg { font-size: 36px !important; line-height: 44px !important; }
+    .pt-32 { padding-top: 96px !important; }
+    .py-20 { padding-top: 64px !important; padding-bottom: 64px !important; }
+    .gap-gutter { gap: 16px !important; }
+    .p-8 { padding: 24px !important; }
+}
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu {
+            position: absolute; top: calc(100% + 10px); left: 50%;
+            transform: translateX(-50%) translateY(-6px); min-width: 232px;
+            background: rgba(12,15,20,0.97); backdrop-filter: blur(20px);
+            border: 1px solid rgba(69,162,158,0.28); border-radius: 14px; padding: 6px 0;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+            z-index: 200; box-shadow: 0 24px 48px rgba(0,0,0,0.55);
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+        .nav-dropdown-menu a { display:flex; align-items:center; gap:10px; padding:10px 16px; font-size:13.5px; color:#8a93a0; transition:color .14s,background .14s; white-space:nowrap; text-decoration:none; }
+        .nav-dropdown-menu a:hover { color:#00e3fd; background:rgba(0,227,253,0.06); }
+        .nav-dropdown-menu .dd-label { padding:8px 16px 4px; font-size:10.5px; letter-spacing:.1em; color:#4a5568; text-transform:uppercase; }
+        .nav-dropdown-menu .dd-divider { border-top:1px solid rgba(69,162,158,0.16); margin:4px 0; }
+        .nav-dropdown-btn { display:flex; align-items:center; gap:3px; background:none; border:none; padding:0; cursor:pointer; font-family:inherit; }
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "background": "#121317",
+        "outline": "#8e8fa2",
+        "secondary-container": "#00e3fd",
+        "surface-container-lowest": "#0d0e12",
+        "surface-container-low": "#1a1b20",
+        "surface-container": "#1f1f24",
+        "surface-container-high": "#292a2e",
+        "surface": "#121317",
+        "on-surface": "#e3e2e8",
+        "on-surface-variant": "#c4c5d9",
+        "outline-variant": "#434656",
+        "primary-container": "#1f51ff",
+        "on-primary-container": "#e1e4ff",
+        "primary": "#b9c3ff"
+      },
+      borderRadius: { "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+      spacing: { "margin-mobile": "16px", "margin-desktop": "48px", "container-max": "1280px", "gutter": "24px" },
+      fontFamily: {
+        "body-md": ["IBM Plex Sans"], "body-lg": ["IBM Plex Sans"],
+        "headline-lg": ["IBM Plex Sans"], "headline-md": ["IBM Plex Sans"],
+        "label-sm": ["JetBrains Mono"], "display-lg": ["IBM Plex Sans"]
+      },
+      fontSize: {
+        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+        "display-lg": ["48px", {"lineHeight": "56px", "fontWeight": "700"}]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="font-body-md text-on-surface bg-surface-container-lowest">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface" href="index.html">Inletix</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html#home">Home</a>
+<div class="nav-dropdown">
+<button class="nav-dropdown-btn font-body-md text-body-md text-primary border-b-2 border-primary font-bold">
+  Services <span class="material-symbols-outlined" style="font-size:17px;line-height:1;margin-top:1px">expand_more</span>
+</button>
+<div class="nav-dropdown-menu">
+  <a href="services.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">grid_view</span>All Services</a>
+  <div class="dd-divider"></div>
+  <div class="dd-label">Our Services</div>
+  <a href="web-development.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">code</span>Web Development</a>
+  <a href="software-development.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">terminal</span>Software Development</a>
+  <a href="ecommerce.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">shopping_cart</span>E-commerce</a>
+  <a href="it-support.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">support_agent</span>IT Support</a>
+  <a href="automation.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">auto_fix_high</span>Automation</a>
+</div>
+</div>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</nav>
+<a class="hidden md:inline-block px-6 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow transition-all duration-300" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Get Started</a>
+<button aria-label="Open mobile menu" class="md:hidden w-10 h-10 rounded-lg border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary-container hover:border-secondary-container transition-colors" onclick="toggleMobileMenu()" type="button">
+<span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
+</button>
+</div>
+<div class="hidden md:hidden border-t border-outline-variant/20 bg-surface/95 backdrop-blur-xl" id="mobile-menu">
+<nav class="flex flex-col px-margin-mobile py-4 gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html#home">Home</a>
+<div>
+  <button onclick="toggleServicesDropdown()" class="flex items-center justify-between w-full font-body-md text-body-md text-primary font-bold">
+    Services <span class="material-symbols-outlined" id="services-dd-icon" style="font-size:18px;line-height:1">expand_more</span>
+  </button>
+  <div id="mobile-services-dd" style="display:none;flex-direction:column;gap:4px;margin-top:8px;padding-left:16px;border-left:1px solid rgba(69,162,158,0.2)">
+    <a href="services.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">grid_view</span>All Services</a>
+    <a href="web-development.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">code</span>Web Development</a>
+    <a href="software-development.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">terminal</span>Software Development</a>
+    <a href="ecommerce.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">shopping_cart</span>E-commerce</a>
+    <a href="it-support.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">support_agent</span>IT Support</a>
+    <a href="automation.html" class="flex items-center gap-2 py-2 text-sm text-primary font-bold transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">auto_fix_high</span>Automation</a>
+  </div>
+</div>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Get Started</a>
+</nav>
+</div>
+</header>
+<main>
+<!-- Hero -->
+<section class="relative pt-32 pb-20 overflow-hidden">
+<div class="absolute inset-0 automation-grid opacity-60"></div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,227,253,0.14),transparent_40%),linear-gradient(180deg,rgba(11,12,16,0.92),#0d0e12)]"></div>
+<div class="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<a class="inline-flex items-center gap-2 text-primary hover:text-secondary-container transition-colors mb-10" href="services.html">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+Back to services
+</a>
+<div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+<div>
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Automation Service</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6">Automate repetitive tasks and save hours every week.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">We build automation workflows, bots, and integrations that connect your tools, eliminate manual work, and keep your business running around the clock — even when your team is offline.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="px-8 py-4 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-body-md transition-all inline-block text-center" href="https://wa.me/8801410007505?text=I%20want%20to%20automate%20my%20business%20with%20Inletix" rel="noopener noreferrer" target="_blank">Discuss Automation</a>
+<a class="px-8 py-4 border border-secondary-container text-secondary-container font-bold rounded-lg hover:bg-secondary-container/10 transition-all inline-block text-center" href="#pricing">View Pricing</a>
+</div>
+</div>
+<div class="glass-card rounded-xl p-8">
+<span class="material-symbols-outlined text-secondary-container text-5xl mb-6">auto_fix_high</span>
+<h2 class="font-headline-md text-headline-md mb-5">What You Get</h2>
+<ul class="space-y-4 text-on-surface-variant">
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-base mt-1">check_circle</span><span>Custom workflow automation connecting your tools and eliminating manual steps.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-base mt-1">check_circle</span><span>WhatsApp and email bots for lead follow-up, order updates, and notifications.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-base mt-1">check_circle</span><span>Data scraping, report generation, and scheduled task automation.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-base mt-1">check_circle</span><span>API integrations linking your CRM, ecommerce store, and communication tools.</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Automation Types -->
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12">
+<h2 class="font-headline-lg text-headline-lg mb-4">Types of Automation We Build</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Every automation is mapped to a specific business process — not a generic template. We look at where your team is losing time and build systems that eliminate it.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter">
+<div class="glass-card rounded-xl p-8">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-5">device_hub</span>
+<h3 class="font-headline-md text-headline-md mb-3">Workflow Automation</h3>
+<p class="text-on-surface-variant mb-4">Connect apps, trigger actions on events, and route data between systems — using Zapier, Make (Integromat), n8n, or fully custom Python/Node scripts.</p>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">arrow_right</span>Form submission → CRM + email + Slack</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">arrow_right</span>New order → invoice + shipping + notification</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">arrow_right</span>Sheet update → database sync + report</li>
+</ul>
+</div>
+<div class="glass-card rounded-xl p-8">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-5">smart_toy</span>
+<h3 class="font-headline-md text-headline-md mb-3">Communication Bots</h3>
+<p class="text-on-surface-variant mb-4">WhatsApp, email, and SMS automation for lead follow-up, order confirmations, appointment reminders, and customer service routing.</p>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">arrow_right</span>Auto-reply to new WhatsApp leads</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">arrow_right</span>Order status updates via SMS/email</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">arrow_right</span>Appointment reminder sequences</li>
+</ul>
+</div>
+<div class="glass-card rounded-xl p-8">
+<span class="material-symbols-outlined text-secondary-container text-4xl mb-5">analytics</span>
+<h3 class="font-headline-md text-headline-md mb-3">Data & Reporting</h3>
+<p class="text-on-surface-variant mb-4">Automated reports, data scraping, scheduled exports, and dashboards that update themselves — so you always have current numbers without manual work.</p>
+<ul class="space-y-2 text-sm text-on-surface-variant">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">arrow_right</span>Daily sales report to email/WhatsApp</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">arrow_right</span>Competitor price monitoring</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm">arrow_right</span>Inventory alerts when stock drops</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Tools We Use -->
+<section class="py-20 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12 text-center">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Tools & Platforms</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">We Work With Your Existing Tools</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">We don't force you to change your stack. We build automations that connect what you already use.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="glass-card rounded-xl p-6 text-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-3">
+<span class="material-symbols-outlined text-secondary-container text-xl">bolt</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Zapier / Make</h4>
+<p class="text-sm text-on-surface-variant">No-code workflow automation for connecting apps without writing code.</p>
+</div>
+<div class="glass-card rounded-xl p-6 text-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-3">
+<span class="material-symbols-outlined text-secondary-container text-xl">code</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Python / Node.js</h4>
+<p class="text-sm text-on-surface-variant">Custom scripts for complex logic, data processing, and API integrations.</p>
+</div>
+<div class="glass-card rounded-xl p-6 text-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-3">
+<span class="material-symbols-outlined text-secondary-container text-xl">chat</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">WhatsApp API</h4>
+<p class="text-sm text-on-surface-variant">Automated messaging, chatbot flows, and broadcast sequences via WhatsApp Business API.</p>
+</div>
+<div class="glass-card rounded-xl p-6 text-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-3">
+<span class="material-symbols-outlined text-secondary-container text-xl">table_chart</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Google Sheets / Airtable</h4>
+<p class="text-sm text-on-surface-variant">Live dashboards and automated reports fed directly from your business data.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing -->
+<section class="py-20 bg-surface-container-low" id="pricing">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Pricing</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">Pricing Plans</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Starting prices for common automation projects. Complex or multi-system automations are quoted after a discovery call.</p>
+</div>
+<div class="grid lg:grid-cols-3 gap-gutter">
+<div class="glass-card rounded-xl p-8 flex flex-col">
+<h3 class="font-headline-md text-headline-md mb-2">Starter</h3>
+<p class="text-on-surface-variant mb-6">Best for a single workflow or process you want to automate immediately.</p>
+<div class="font-display-lg text-display-lg text-primary mb-6">$199</div>
+<ul class="space-y-3 text-on-surface-variant mb-8 flex-1">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>1 automated workflow</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Up to 3 app connections</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Fully tested and deployed</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>7-day handover support</li>
+</ul>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505?text=I%20am%20interested%20in%20the%20Starter%20automation%20plan" rel="noopener noreferrer" target="_blank">Select Plan</a>
+</div>
+<div class="glass-card-featured rounded-xl p-8 flex flex-col relative">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-secondary-container text-surface-container-lowest font-label-sm text-label-sm font-bold rounded-full uppercase tracking-widest">Most Popular</div>
+<h3 class="font-headline-md text-headline-md mb-2 mt-4">Business</h3>
+<p class="text-on-surface-variant mb-6">Best for teams that want multiple automations across their operations.</p>
+<div class="font-display-lg text-display-lg text-primary mb-6">$499</div>
+<ul class="space-y-3 text-on-surface-variant mb-8 flex-1">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Up to 5 automated workflows</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Multi-step and conditional logic</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>WhatsApp or email bot included</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>30-day post-launch support</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Documentation handover</li>
+</ul>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505?text=I%20am%20interested%20in%20the%20Business%20automation%20plan" rel="noopener noreferrer" target="_blank">Select Plan</a>
+</div>
+<div class="glass-card rounded-xl p-8 flex flex-col">
+<h3 class="font-headline-md text-headline-md mb-2">Full System</h3>
+<p class="text-on-surface-variant mb-6">Best for businesses that want their entire operation running on automated systems.</p>
+<div class="font-display-lg text-display-lg text-primary mb-6">$999+</div>
+<ul class="space-y-3 text-on-surface-variant mb-8 flex-1">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Unlimited workflows</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Custom scripts and API integrations</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Dashboard and reporting setup</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Monthly monitoring and adjustments</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Priority response and updates</li>
+</ul>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505?text=I%20am%20interested%20in%20the%20Full%20System%20automation%20plan" rel="noopener noreferrer" target="_blank">Select Plan</a>
+</div>
+</div>
+<p class="mt-6 text-center text-on-surface-variant font-body-md">Not sure what to automate? <a class="text-secondary-container hover:underline" href="https://wa.me/8801410007505?text=I%20want%20to%20explore%20automation%20options%20for%20my%20business" rel="noopener noreferrer" target="_blank">Message us on WhatsApp</a> — we'll map out the best starting point.</p>
+</div>
+</section>
+<!-- CTA -->
+<section class="py-20 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="glass-card rounded-xl p-12 text-center relative overflow-hidden">
+<div class="absolute inset-0 automation-grid opacity-40 pointer-events-none"></div>
+<div class="relative">
+<h2 class="font-display-lg text-display-lg mb-6">Ready to automate your business?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">Tell us which repetitive tasks are costing your team time. We'll map out the automations, show you what's possible, and build it fast.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a class="px-10 py-4 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-body-md transition-all inline-block text-center" href="https://wa.me/8801410007505?text=I%20want%20to%20automate%20my%20business" rel="noopener noreferrer" target="_blank">Start Automating</a>
+<a class="px-10 py-4 border border-secondary-container text-secondary-container font-bold rounded-lg hover:bg-secondary-container/10 transition-all inline-block text-center" href="services.html">View All Services</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col md:flex-row justify-between items-start gap-10 mb-10">
+<div class="flex flex-col gap-3 max-w-xs">
+<div class="text-headline-md font-headline-md font-bold text-on-surface">Inletix</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Complete IT solutions for modern businesses — websites, software, ecommerce, and reliable support.</p>
+<a class="font-body-md text-body-md text-secondary-container hover:underline transition-colors w-fit" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">+880 1410-007505</a>
+</div>
+<div class="flex flex-col sm:flex-row gap-10">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Services</p>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="web-development.html">Web Development</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="software-development.html">Software Development</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="ecommerce.html">E-commerce</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="it-support.html">IT Support</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="automation.html">Automation</a>
+</div>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Company</p>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-outline-variant/20">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2026 Inletix. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('mobile-menu-icon');
+    if (!menu || !icon) return;
+    menu.classList.toggle('hidden');
+    icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+}
+function toggleServicesDropdown() {
+    var menu = document.getElementById('mobile-services-dd');
+    var icon = document.getElementById('services-dd-icon');
+    var open = menu.style.display === 'flex';
+    menu.style.display = open ? 'none' : 'flex';
+    icon.textContent = open ? 'expand_more' : 'expand_less';
+}
+const _stb = document.getElementById('scroll-top-btn');
+if (_stb) window.addEventListener('scroll', () => _stb.classList.toggle('visible', scrollY > 400), {passive:true});
+</script>
+<style>
+html{scroll-behavior:smooth}
+.whatsapp-fab{background:#25D366;box-shadow:0 4px 16px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s}
+.whatsapp-fab:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,.5)}
+#scroll-top-btn{opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,border-color .2s}
+#scroll-top-btn.visible{opacity:1;visibility:visible}
+#scroll-top-btn:hover{border-color:rgba(0,227,253,.5);color:#00e3fd}
+</style>
+<a href="https://wa.me/8801410007505" target="_blank" rel="noopener noreferrer" class="whatsapp-fab fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center" aria-label="Chat on WhatsApp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.867-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+</a>
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 right-6 z-50 w-11 h-11 rounded-full flex items-center justify-center shadow-lg border border-outline-variant/40 text-on-surface-variant" style="background:rgba(31,40,51,0.9);backdrop-filter:blur(8px)" aria-label="Scroll to top">
+<span class="material-symbols-outlined text-xl">arrow_upward</span>
+</button>
+</body>
+</html>

@@ -3,10 +3,13 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Inletix delivers complete IT solutions — professional websites, custom software, ecommerce systems, and reliable technical support for modern businesses."/>
+<meta property="og:title" content="Inletix | Digital Infrastructure Excellence"/>
+<meta property="og:description" content="Complete IT solutions for modern business — websites, software, ecommerce, and ongoing support."/>
+<meta property="og:type" content="website"/>
 <title>Inletix | Digital Infrastructure Excellence</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
         body {
@@ -274,6 +277,68 @@
                 padding-left: 24px !important;
             }
         }
+        html { scroll-behavior: smooth; }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .whatsapp-fab {
+            background: #25D366;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+        }
+        #scroll-top-btn {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, border-color 0.2s ease;
+        }
+        #scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #scroll-top-btn:hover {
+            border-color: rgba(0, 227, 253, 0.5);
+            color: #00e3fd;
+        }
+        .testimonial-stars { color: #f59e0b; }
+        /* Services nav dropdown */
+        .nav-dropdown { position: relative; }
+        .nav-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-6px);
+            min-width: 232px;
+            background: rgba(12, 15, 20, 0.97);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(69, 162, 158, 0.28);
+            border-radius: 14px;
+            padding: 6px 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+            z-index: 200;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,227,253,0.04);
+        }
+        .nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .nav-dropdown-menu a {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 16px; font-size: 13.5px; color: #8a93a0;
+            transition: color 0.14s, background 0.14s; white-space: nowrap; text-decoration: none;
+        }
+        .nav-dropdown-menu a:hover { color: #00e3fd; background: rgba(0,227,253,0.06); }
+        .nav-dropdown-menu .dd-label { padding: 8px 16px 4px; font-size: 10.5px; letter-spacing: 0.1em; color: #4a5568; text-transform: uppercase; }
+        .nav-dropdown-menu .dd-divider { border-top: 1px solid rgba(69,162,158,0.16); margin: 4px 0; }
+        .nav-dropdown-btn { display: flex; align-items: center; gap: 3px; background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; }
     </style>
 <script id="tailwind-config">
         tailwind.config = {
@@ -372,7 +437,21 @@
 <a class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface dark:text-on-surface" href="index.html">Inletix</a>
 <nav class="hidden md:flex items-center gap-8">
 <a class="font-body-md text-body-md text-primary dark:text-primary border-b-2 border-primary font-bold" href="#home">Home</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="services.html">Services</a>
+<div class="nav-dropdown">
+<button class="nav-dropdown-btn font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors">
+  Services <span class="material-symbols-outlined" style="font-size:17px;line-height:1;margin-top:1px">expand_more</span>
+</button>
+<div class="nav-dropdown-menu">
+  <a href="services.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">grid_view</span>All Services</a>
+  <div class="dd-divider"></div>
+  <div class="dd-label">Our Services</div>
+  <a href="web-development.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">code</span>Web Development</a>
+  <a href="software-development.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">terminal</span>Software Development</a>
+  <a href="ecommerce.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">shopping_cart</span>E-commerce</a>
+  <a href="it-support.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">support_agent</span>IT Support</a>
+  <a href="automation.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">auto_fix_high</span>Automation</a>
+</div>
+</div>
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
 </nav>
@@ -386,7 +465,19 @@
 <div class="hidden md:hidden border-t border-outline-variant/20 bg-surface/95 backdrop-blur-xl" id="mobile-menu">
 <nav class="flex flex-col px-margin-mobile py-4 gap-4">
 <a class="font-body-md text-body-md text-primary font-bold" href="index.html#home">Home</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="services.html">Services</a>
+<div>
+  <button onclick="toggleServicesDropdown()" class="flex items-center justify-between w-full font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">
+    Services <span class="material-symbols-outlined" id="services-dd-icon" style="font-size:18px;line-height:1">expand_more</span>
+  </button>
+  <div id="mobile-services-dd" style="display:none;flex-direction:column;gap:4px;margin-top:8px;padding-left:16px;border-left:1px solid rgba(69,162,158,0.2)">
+    <a href="services.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">grid_view</span>All Services</a>
+    <a href="web-development.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">code</span>Web Development</a>
+    <a href="software-development.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">terminal</span>Software Development</a>
+    <a href="ecommerce.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">shopping_cart</span>E-commerce</a>
+    <a href="it-support.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">support_agent</span>IT Support</a>
+    <a href="automation.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">auto_fix_high</span>Automation</a>
+  </div>
+</div>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
 <a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Get Started</a>
@@ -397,7 +488,7 @@
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="home">
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover opacity-30" data-alt="A wide cinematic shot of a high-tech data center interior with glowing blue server racks extending into a vanishing point. The atmosphere is professional and cool-toned, dominated by obsidian blacks and electric blue light trails. This digital infrastructure environment exudes a sense of architectural stability and modern cloud computing efficiency, perfectly representing technical precision and reliability in a corporate tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApGtLcvI_UDX_wLirPVkG0kBTjnq_hXiDvEKauSmINI10zJ2AHayF0pTxrMTBKxnb8YwS90YtYHoVM9udEx8FmS7T3pxLnOBXxq9BixlPeN6RRo5W5Uz1odiL6x22VS8HlJbB6ymQ4fRvUWuJRumQoTgOmTDF_axShhvOorNznyKJt3FoPvTBZynQa5qSBwOfi5o63TchEbVBczUzSATYUw1OPvMFIktV7vRy_-LsufYUODDWWPsOOpz0-z460L9H41UHP-ajA"/>
+<img class="w-full h-full object-cover opacity-30" alt="Modern data center interior with glowing blue server racks, representing Inletix's digital infrastructure excellence" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApGtLcvI_UDX_wLirPVkG0kBTjnq_hXiDvEKauSmINI10zJ2AHayF0pTxrMTBKxnb8YwS90YtYHoVM9udEx8FmS7T3pxLnOBXxq9BixlPeN6RRo5W5Uz1odiL6x22VS8HlJbB6ymQ4fRvUWuJRumQoTgOmTDF_axShhvOorNznyKJt3FoPvTBZynQa5qSBwOfi5o63TchEbVBczUzSATYUw1OPvMFIktV7vRy_-LsufYUODDWWPsOOpz0-z460L9H41UHP-ajA"/>
 <div class="absolute inset-0 bg-gradient-to-b from-surface-container-lowest via-transparent to-surface-container-lowest"></div>
 </div>
 <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
@@ -416,9 +507,23 @@
 <a class="px-8 py-4 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-body-md transition-all inline-block text-center" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">
                             Get Started
                         </a>
-<button class="px-8 py-4 border border-secondary-container text-secondary-container font-bold rounded-lg hover:bg-secondary-container/10 transition-all">
+<a class="px-8 py-4 border border-secondary-container text-secondary-container font-bold rounded-lg hover:bg-secondary-container/10 transition-all inline-block text-center" href="#services">
                             Our Capabilities
-                        </button>
+                        </a>
+</div>
+<div class="flex flex-wrap gap-10 mt-14 pt-10 border-t border-outline-variant/20">
+<div>
+<div class="text-3xl font-bold text-primary">50+</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mt-1">Projects Delivered</div>
+</div>
+<div>
+<div class="text-3xl font-bold text-primary">2+</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mt-1">Years of Experience</div>
+</div>
+<div>
+<div class="text-3xl font-bold text-primary">24/7</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mt-1">Support Available</div>
+</div>
 </div>
 </div>
 </div>
@@ -523,46 +628,102 @@
 <!-- Services Section (Bento Grid) -->
 <section class="py-24 bg-surface-container-lowest" id="services">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-16">
+<div class="mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+<div>
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Core Services</span>
 <h2 class="font-headline-lg text-headline-lg mb-4">Strategic IT Services</h2>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Architectural stability meets information velocity. Explore our core technical pillars.</p>
 </div>
+<a class="flex items-center gap-2 text-secondary-container font-semibold hover:underline transition-colors whitespace-nowrap" href="services.html">
+View All Services <span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
 <!-- Cloud Solutions -->
-<div class="glass-card p-base rounded-xl flex flex-col min-h-[300px] group transition-all">
-<div class="p-6">
+<a href="services.html" class="glass-card p-base rounded-xl flex flex-col min-h-[300px] group transition-all hover:-translate-y-1 cursor-pointer">
+<div class="p-6 flex flex-col h-full">
 <span class="material-symbols-outlined text-secondary-container text-4xl mb-6">cloud_done</span>
 <h3 class="font-headline-md text-headline-md mb-4">Cloud Solutions</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Scalable hybrid and multi-cloud architectures designed for performance and global resilience.</p>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1">Scalable hybrid and multi-cloud architectures designed for performance and global resilience.</p>
+<div class="flex items-center gap-2 text-secondary-container text-body-md font-semibold mt-6 pt-4 border-t border-outline-variant/20">
+<span>Learn More</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
 </div>
 </div>
+</a>
 <!-- Cybersecurity -->
-<div class="glass-card p-base rounded-xl flex flex-col min-h-[300px] group transition-all">
-<div class="p-6">
+<a href="services.html" class="glass-card p-base rounded-xl flex flex-col min-h-[300px] group transition-all hover:-translate-y-1 cursor-pointer">
+<div class="p-6 flex flex-col h-full">
 <span class="material-symbols-outlined text-secondary-container text-4xl mb-6">shield_lock</span>
 <h3 class="font-headline-md text-headline-md mb-4">Cybersecurity</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Zero-trust security frameworks and proactive threat intelligence to protect your digital assets.</p>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1">Zero-trust security frameworks and proactive threat intelligence to protect your digital assets.</p>
+<div class="flex items-center gap-2 text-secondary-container text-body-md font-semibold mt-6 pt-4 border-t border-outline-variant/20">
+<span>Learn More</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
 </div>
 </div>
+</a>
 <!-- Managed IT -->
-<div class="glass-card p-base rounded-xl flex flex-col min-h-[300px] group transition-all">
-<div class="p-6">
+<a href="services.html" class="glass-card p-base rounded-xl flex flex-col min-h-[300px] group transition-all hover:-translate-y-1 cursor-pointer">
+<div class="p-6 flex flex-col h-full">
 <span class="material-symbols-outlined text-secondary-container text-4xl mb-6">settings_suggest</span>
 <h3 class="font-headline-md text-headline-md mb-4">Managed IT</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">24/7 technical operations and system monitoring ensuring 99.9% infrastructure availability.</p>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1">24/7 technical operations and system monitoring ensuring 99.9% infrastructure availability.</p>
+<div class="flex items-center gap-2 text-secondary-container text-body-md font-semibold mt-6 pt-4 border-t border-outline-variant/20">
+<span>Learn More</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
 </div>
 </div>
+</a>
 <!-- Software Development -->
-<div class="glass-card p-base rounded-xl flex flex-col min-h-[300px] group transition-all">
-<div class="p-6">
+<a href="software-development.html" class="glass-card p-base rounded-xl flex flex-col min-h-[300px] group transition-all hover:-translate-y-1 cursor-pointer">
+<div class="p-6 flex flex-col h-full">
 <span class="material-symbols-outlined text-secondary-container text-4xl mb-6">code_blocks</span>
 <h3 class="font-headline-md text-headline-md mb-4">Software Dev</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Custom engineering of mission-critical applications using modern microservices architecture.</p>
+<p class="font-body-md text-body-md text-on-surface-variant flex-1">Custom engineering of mission-critical applications using modern microservices architecture.</p>
+<div class="flex items-center gap-2 text-secondary-container text-body-md font-semibold mt-6 pt-4 border-t border-outline-variant/20">
+<span>Learn More</span>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Why Choose Inletix -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Why Inletix</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">Built for businesses that can't afford downtime</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">We combine technical depth with practical business thinking to deliver digital systems that actually work.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-card rounded-xl p-8 text-center group transition-all hover:-translate-y-1">
+<div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-secondary-container text-3xl">verified</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Quality Guaranteed</h3>
+<p class="text-on-surface-variant">Every project is tested, optimized, and reviewed before delivery. Clean code, responsive design, and real performance.</p>
+</div>
+<div class="glass-card rounded-xl p-8 text-center group transition-all hover:-translate-y-1">
+<div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-secondary-container text-3xl">support_agent</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Ongoing Support</h3>
+<p class="text-on-surface-variant">We don't disappear after launch. Our team stays available for updates, fixes, and continuous improvement.</p>
+</div>
+<div class="glass-card rounded-xl p-8 text-center group transition-all hover:-translate-y-1">
+<div class="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-secondary-container text-3xl">speed</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Fast Turnaround</h3>
+<p class="text-on-surface-variant">We work with clear timelines and communicate every step. No surprises, no delays without notice.</p>
 </div>
 </div>
 </div>
-</div>
-</section><section class="py-24 bg-surface-container-low" id="development">
+</section>
+<section class="py-24 bg-surface-container-lowest" id="development">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="mb-16">
 <h2 class="font-headline-lg text-headline-lg mb-4">Web &amp; Software Development</h2>
@@ -598,6 +759,95 @@
 </div>
 </div>
 </section>
+<!-- How We Work -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-16">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">How We Work</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">Simple process, reliable results</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">From first conversation to launch day, we follow a clear, structured process so you always know where your project stands.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="glass-card rounded-xl p-6 flex flex-col h-full">
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
+<span class="font-label-sm text-label-sm text-primary font-bold">01</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-3xl mb-4">chat</span>
+<h3 class="font-headline-md text-headline-md mb-3">Discovery</h3>
+<p class="text-on-surface-variant text-body-md">We listen to your goals, review your requirements, and define the right scope and timeline for your project.</p>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col h-full">
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
+<span class="font-label-sm text-label-sm text-primary font-bold">02</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-3xl mb-4">design_services</span>
+<h3 class="font-headline-md text-headline-md mb-3">Design</h3>
+<p class="text-on-surface-variant text-body-md">We map the user journey and create layouts and flows that match your brand and serve your audience effectively.</p>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col h-full">
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
+<span class="font-label-sm text-label-sm text-primary font-bold">03</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-3xl mb-4">code</span>
+<h3 class="font-headline-md text-headline-md mb-3">Build</h3>
+<p class="text-on-surface-variant text-body-md">Clean development, performance optimization, and integration testing to ensure everything works correctly before handover.</p>
+</div>
+<div class="glass-card rounded-xl p-6 flex flex-col h-full">
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6">
+<span class="font-label-sm text-label-sm text-primary font-bold">04</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-3xl mb-4">rocket_launch</span>
+<h3 class="font-headline-md text-headline-md mb-3">Launch &amp; Support</h3>
+<p class="text-on-surface-variant text-body-md">We deploy, monitor, and stay available post-launch to handle updates, bugs, and ongoing improvements.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Portfolio / Recent Work -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+<div>
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Recent Work</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">Projects we've delivered</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">A sample of the types of websites, tools, and systems we build for real businesses.</p>
+</div>
+<a class="flex items-center gap-2 text-secondary-container font-semibold hover:underline transition-colors whitespace-nowrap" href="contact.html">Start Your Project <span class="material-symbols-outlined text-base">arrow_forward</span></a>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter">
+<div class="glass-card rounded-xl overflow-hidden group hover:-translate-y-1 transition-all animate-on-scroll">
+<div class="h-44 flex items-center justify-center border-b border-outline-variant/20" style="background:linear-gradient(135deg,rgba(31,81,255,0.2),rgba(185,195,255,0.06))">
+<span class="material-symbols-outlined text-8xl" style="color:rgba(185,195,255,0.2)">web</span>
+</div>
+<div class="p-6">
+<span class="inline-block px-3 py-1 mb-3 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">Web Development</span>
+<h3 class="font-headline-md text-headline-md mb-2">Business Website</h3>
+<p class="text-on-surface-variant text-body-md">Multi-page company site with service pages, contact forms, WhatsApp integration, and full SEO structure.</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group hover:-translate-y-1 transition-all animate-on-scroll" style="transition-delay:0.1s">
+<div class="h-44 flex items-center justify-center border-b border-outline-variant/20" style="background:linear-gradient(135deg,rgba(0,130,70,0.18),rgba(0,227,253,0.06))">
+<span class="material-symbols-outlined text-8xl" style="color:rgba(0,227,253,0.18)">shopping_bag</span>
+</div>
+<div class="p-6">
+<span class="inline-block px-3 py-1 mb-3 rounded-full bg-secondary-container/10 text-secondary-container font-label-sm text-label-sm">Ecommerce</span>
+<h3 class="font-headline-md text-headline-md mb-2">Shopify Store</h3>
+<p class="text-on-surface-variant text-body-md">Full ecommerce setup — product pages, payment gateway, checkout flow, and inventory management.</p>
+</div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden group hover:-translate-y-1 transition-all animate-on-scroll" style="transition-delay:0.2s">
+<div class="h-44 flex items-center justify-center border-b border-outline-variant/20" style="background:linear-gradient(135deg,rgba(100,40,200,0.18),rgba(185,195,255,0.06))">
+<span class="material-symbols-outlined text-8xl" style="color:rgba(185,195,255,0.18)">dashboard</span>
+</div>
+<div class="p-6">
+<span class="inline-block px-3 py-1 mb-3 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">Software</span>
+<h3 class="font-headline-md text-headline-md mb-2">Business Dashboard</h3>
+<p class="text-on-surface-variant text-body-md">Custom admin panel with order tracking, reports, role-based access, and third-party API integrations.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- Future Letter Section -->
 <section class="py-24 bg-surface-container-lowest">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
@@ -619,7 +869,7 @@
 <div class="flex flex-col lg:flex-row gap-20 items-center">
 <div class="flex-1 relative about-image">
 <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-secondary-container"></div>
-<img class="rounded-lg shadow-2xl relative z-10" data-alt="A modern, high-end corporate office lobby with glass walls, sleek minimalist furniture, and architectural lighting. The environment is clean and professional, featuring a palette of obsidian grays and bright accents. Professional technical leads are seen in the background engaged in collaborative work, reflecting the Inletix brand's focus on precision, reliability, and architectural stability in the tech space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9eccrlh_OehF2g3rQYPIR-Sa1yX4IPqR6bQzerb5ndI5EucKz9Tt9VAvl9zgAHxEAmM3AIXjC1lvnBv8uGk4haR8eDl6dJ0A6C0L6AXNohsCvLHCZOMuNgvacPFz3SGgYdbMKxP2QmNPhN07H5oLSDT4y-K0w7jRv5a9g9u6pP-J_NlaU3w4qCOlaIfQWg9FM5JEOxq2A9iFfdZf0D_nTZxW7HBoQKSDO37KGJaWyZ6zb5iMw0aOML5yEaAgSIb2TquLMrw48"/>
+<img class="rounded-lg shadow-2xl relative z-10" alt="Modern corporate office environment with professional technical team collaborating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9eccrlh_OehF2g3rQYPIR-Sa1yX4IPqR6bQzerb5ndI5EucKz9Tt9VAvl9zgAHxEAmM3AIXjC1lvnBv8uGk4haR8eDl6dJ0A6C0L6AXNohsCvLHCZOMuNgvacPFz3SGgYdbMKxP2QmNPhN07H5oLSDT4y-K0w7jRv5a9g9u6pP-J_NlaU3w4qCOlaIfQWg9FM5JEOxq2A9iFfdZf0D_nTZxW7HBoQKSDO37KGJaWyZ6zb5iMw0aOML5yEaAgSIb2TquLMrw48"/>
 <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-secondary-container"></div>
 </div>
 <div class="flex-1 about-content">
@@ -641,6 +891,54 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<style>
+.tc-wrap{overflow:hidden;}
+.tc-track{display:flex;transition:transform .52s cubic-bezier(.25,.46,.45,.94);}
+.tc-card{flex:0 0 auto;padding:0 10px;box-sizing:border-box;}
+.tc-dot{width:8px;height:8px;border-radius:50%;background:rgba(185,195,255,.18);cursor:pointer;transition:background .3s,transform .3s;border:none;padding:0;flex-shrink:0;}
+.tc-dot.act{background:#b9c3ff;transform:scale(1.4);}
+.tc-arrow{width:44px;height:44px;border-radius:50%;background:rgba(31,40,51,.92);border:1px solid rgba(69,162,158,.25);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,color .2s;color:#c4c5d9;flex-shrink:0;}
+.tc-arrow:hover{border-color:#00e3fd;color:#00e3fd;}
+</style>
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Client Feedback</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">What our clients say</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Feedback from businesses that have worked with our team on websites, software, and ecommerce projects.</p>
+</div>
+<div class="tc-wrap" id="tc-wrap">
+<div class="tc-track" id="tc-track">
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"They built our product showcase website with great attention to detail. Clean design, fast loading, and exactly what we needed to win client trust online."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">R</div><div><p class="font-bold text-on-surface text-body-md">Rafi Ahmed</p><p class="font-label-sm text-label-sm text-on-surface-variant">Founder, ShopNow BD</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"The inventory dashboard they built saved us hours of manual work every week. Solid system, clean UI, and great documentation handed over at launch."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">N</div><div><p class="font-bold text-on-surface text-body-md">Nadia Islam</p><p class="font-label-sm text-label-sm text-on-surface-variant">Operations Manager, CloudTech Solutions</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"Our Shopify store was set up perfectly — payment gateway, product filters, mobile layout — everything done right from the start. Highly recommend."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">K</div><div><p class="font-bold text-on-surface text-body-md">Karim Hassan</p><p class="font-label-sm text-label-sm text-on-surface-variant">CEO, DhakaCart</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"Inletix migrated our WooCommerce store to Shopify without losing a single product or order history. Very professional team with a careful approach."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">F</div><div><p class="font-bold text-on-surface text-body-md">Farhan Hossain</p><p class="font-label-sm text-label-sm text-on-surface-variant">Owner, StyleHouse BD</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"They built our course landing pages and a student inquiry system. Traffic to WhatsApp conversion improved immediately after launch. Very effective work."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">S</div><div><p class="font-bold text-on-surface text-body-md">Sadia Rahman</p><p class="font-label-sm text-label-sm text-on-surface-variant">Director, LearnPath Academy</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"We needed a delivery tracking dashboard for our drivers and dispatchers. Inletix built it on time and it works exactly as planned with no issues post-launch."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">T</div><div><p class="font-bold text-on-surface text-body-md">Tanvir Chowdhury</p><p class="font-label-sm text-label-sm text-on-surface-variant">CEO, SwiftLogistics BD</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"My Shopify store looks professional now. Inletix handled everything from theme setup to products, payment, and analytics. Great value for the investment."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">M</div><div><p class="font-bold text-on-surface text-body-md">Maliha Begum</p><p class="font-label-sm text-label-sm text-on-surface-variant">Founder, GlowCraft</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"The real estate listing website they delivered is clean and easy to manage. Our agents are now updating listings themselves with no technical help needed."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">R</div><div><p class="font-bold text-on-surface text-body-md">Rezaul Karim</p><p class="font-label-sm text-label-sm text-on-surface-variant">Manager, HomeNest Realty</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"We hired Inletix for a payment API integration module. They understood the documentation quickly, asked the right questions, and delivered it correctly."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">A</div><div><p class="font-bold text-on-surface text-body-md">Arafat Islam</p><p class="font-label-sm text-label-sm text-on-surface-variant">CTO, PayFast BD</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"They built our menu website and connected our order form directly to WhatsApp. Clients contact us instantly from the site now. Business has grown since."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">S</div><div><p class="font-bold text-on-surface text-body-md">Sabrina Akter</p><p class="font-label-sm text-label-sm text-on-surface-variant">Owner, TasteBud Catering</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"We outsource overflow web projects to Inletix regularly. Consistent quality, clear progress updates, and always delivered on or before the deadline."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">I</div><div><p class="font-bold text-on-surface text-body-md">Imran Khan</p><p class="font-label-sm text-label-sm text-on-surface-variant">MD, DigitalNest Agency</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"Our patient appointment system was built with proper role-based access for doctors, staff, and admin. The team adopted it quickly with very little training."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">T</div><div><p class="font-bold text-on-surface text-body-md">Tasneem Haque</p><p class="font-label-sm text-label-sm text-on-surface-variant">CEO, MediCare Plus</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"Electronics store with hundreds of products. They set up the full catalog, category filters, and checkout flow smoothly. Professional work from start to finish."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">M</div><div><p class="font-bold text-on-surface text-body-md">Mahbub Rahman</p><p class="font-label-sm text-label-sm text-on-surface-variant">Owner, TechZone BD</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"Our NGO needed a donation-friendly website with project updates and a contact form. Inletix delivered something we are genuinely proud to share with donors."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">F</div><div><p class="font-bold text-on-surface text-body-md">Fatema Khatun</p><p class="font-label-sm text-label-sm text-on-surface-variant">Program Director, HopeBridge Foundation</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"The SaaS admin panel they built was well-structured from day one. Database design, user roles, subscription reports — all done properly and cleanly documented."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">A</div><div><p class="font-bold text-on-surface text-body-md">Asif Mahmud</p><p class="font-label-sm text-label-sm text-on-surface-variant">Founder, TrackIt SaaS</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"My fashion boutique needed a Shopify store that reflected our brand. They handled the full setup and trained me to manage it independently. Very helpful team."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">R</div><div><p class="font-bold text-on-surface text-body-md">Rumana Begum</p><p class="font-label-sm text-label-sm text-on-surface-variant">Owner, ThreadCraft BD</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"We needed a fast news site with proper SEO. Inletix delivered with optimized images, clean metadata, and great Lighthouse performance scores right out of the gate."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">S</div><div><p class="font-bold text-on-surface text-body-md">Shakib Ahmed</p><p class="font-label-sm text-label-sm text-on-surface-variant">Head of Tech, Prothom Media</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"The import-export order tracking system simplified our entire logistics flow. Well thought-out architecture and delivered within the agreed timeline without issues."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">N</div><div><p class="font-bold text-on-surface text-body-md">Nasrin Akter</p><p class="font-label-sm text-label-sm text-on-surface-variant">Operations Lead, GlobalImports BD</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"We rely on Inletix for ongoing IT support since our website launch. Fast responses, practical solutions, and they always explain what they are doing. Trustworthy team."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">R</div><div><p class="font-bold text-on-surface text-body-md">Rafiqul Islam</p><p class="font-label-sm text-label-sm text-on-surface-variant">CEO, Dhaka Steel Industries</p></div></div></div></div>
+<div class="tc-card"><div class="glass-card rounded-xl p-7 flex flex-col h-full"><div class="testimonial-stars text-lg mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="text-on-surface-variant flex-1 mb-5">"They built our food ordering backend with restaurant panels and an order management system. Exactly what an early-stage startup needs — solid, scalable, budget-friendly."</p><div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20"><div class="w-9 h-9 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 font-bold text-primary font-body-md">S</div><div><p class="font-bold text-on-surface text-body-md">Sumaiya Hossain</p><p class="font-label-sm text-label-sm text-on-surface-variant">Founder, QuickBite</p></div></div></div></div>
+</div>
+</div>
+<div class="flex items-center justify-center gap-5 mt-10">
+<button class="tc-arrow" id="tc-prev" aria-label="Previous testimonials"><span class="material-symbols-outlined text-xl">arrow_back</span></button>
+<div class="flex gap-2 items-center flex-wrap justify-center" id="tc-dots"></div>
+<button class="tc-arrow" id="tc-next" aria-label="Next testimonials"><span class="material-symbols-outlined text-xl">arrow_forward</span></button>
 </div>
 </div>
 </section>
@@ -734,22 +1032,61 @@ How long does a website take?
 </div>
 </section>
 </main>
+<!-- CTA Banner -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="glass-card rounded-xl p-12 text-center relative overflow-hidden">
+<div class="absolute inset-0 automation-grid opacity-20 pointer-events-none"></div>
+<div class="relative z-10">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Start Today</span>
+<h2 class="font-display-lg text-display-lg mb-6">Ready to build something that works?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">Tell us about your project. We'll review your requirements and come back with a clear plan, timeline, and honest pricing.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a class="px-10 py-4 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-body-md transition-all inline-block text-center" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">
+Start a Project
+</a>
+<a class="px-10 py-4 border border-secondary-container text-secondary-container font-bold rounded-lg hover:bg-secondary-container/10 transition-all inline-block text-center" href="services.html">
+View All Services
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- Footer -->
 <footer class="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20">
-<div class="flex flex-col md:flex-row justify-between items-center gap-base px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
-<div class="flex flex-col items-center md:items-start gap-2">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col md:flex-row justify-between items-start gap-10 mb-10">
+<div class="flex flex-col gap-3 max-w-xs">
 <div class="text-headline-md font-headline-md font-bold text-on-surface dark:text-on-surface">Inletix</div>
-<p class="font-body-md text-body-md text-on-surface-variant">© 2026 Inletix. Digital Infrastructure Excellence.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Complete IT solutions for modern businesses — websites, software, ecommerce, and reliable support.</p>
+<a class="font-body-md text-body-md text-secondary-container hover:underline transition-colors w-fit" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">+880 1410-007505</a>
 </div>
+<div class="flex flex-col sm:flex-row gap-10">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Services</p>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="web-development.html">Web Development</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="software-development.html">Software Development</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="services.html">All Services</a>
+</div>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Company</p>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-outline-variant/20">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2026 Inletix. All rights reserved.</p>
 <div class="flex gap-8">
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
-<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">Security</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
 </div>
-<div class="flex gap-6">
-<span class="material-symbols-outlined text-on-surface-variant hover:text-secondary-fixed transition-transform hover:scale-110 cursor-pointer">public</span>
-<span class="material-symbols-outlined text-on-surface-variant hover:text-secondary-fixed transition-transform hover:scale-110 cursor-pointer">hub</span>
-<span class="material-symbols-outlined text-on-surface-variant hover:text-secondary-fixed transition-transform hover:scale-110 cursor-pointer">terminal</span>
 </div>
 </div>
 </footer>
@@ -883,4 +1220,127 @@ How long does a website take?
             
             window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
         }
-    </script></body></html>
+        // Scroll-to-top button
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', () => {
+                scrollTopBtn.classList.toggle('visible', window.scrollY > 420);
+            }, { passive: true });
+        }
+
+        // Scroll reveal animation
+        const animatedEls = document.querySelectorAll('.animate-on-scroll');
+        if (animatedEls.length) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            animatedEls.forEach((el) => revealObserver.observe(el));
+        }
+
+        // Active nav highlight on scroll
+        const navSectionIds = ['home', 'services', 'about', 'contact'];
+        const desktopNavLinks = document.querySelectorAll('header nav.hidden a');
+        const sectionScrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                desktopNavLinks.forEach((link) => {
+                    const href = link.getAttribute('href') || '';
+                    const matches = href === '#' + entry.target.id || href.endsWith('#' + entry.target.id);
+                    link.classList.toggle('text-primary', matches);
+                    link.classList.toggle('border-b-2', matches);
+                    link.classList.toggle('border-primary', matches);
+                    link.classList.toggle('font-bold', matches);
+                    link.classList.toggle('text-on-surface-variant', !matches);
+                });
+            });
+        }, { threshold: 0.45, rootMargin: '-72px 0px 0px 0px' });
+        navSectionIds.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) sectionScrollObserver.observe(el);
+        });
+    </script>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/8801410007505" target="_blank" rel="noopener noreferrer"
+   class="whatsapp-fab fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center"
+   aria-label="Chat on WhatsApp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="26" height="26">
+<path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.867-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/>
+</svg>
+</a>
+<!-- Scroll to Top -->
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+  class="fixed bottom-24 right-6 z-50 w-11 h-11 rounded-full flex items-center justify-center shadow-lg border border-outline-variant/40 text-on-surface-variant"
+  style="background:rgba(31,40,51,0.9);backdrop-filter:blur(8px)"
+  aria-label="Scroll to top">
+<span class="material-symbols-outlined text-xl">arrow_upward</span>
+</button>
+<script>
+function toggleServicesDropdown() {
+    const menu = document.getElementById('mobile-services-dd');
+    const icon = document.getElementById('services-dd-icon');
+    const open = menu.style.display === 'flex';
+    menu.style.display = open ? 'none' : 'flex';
+    icon.textContent = open ? 'expand_more' : 'expand_less';
+}
+(function() {
+    const wrap = document.getElementById('tc-wrap');
+    const track = document.getElementById('tc-track');
+    if (!wrap || !track) return;
+    const cards = Array.from(track.querySelectorAll('.tc-card'));
+    const TOTAL = cards.length;
+    let current = 0, timer;
+    function vis() { return window.innerWidth >= 768 ? 3 : 1; }
+    function pages() { return Math.ceil(TOTAL / vis()); }
+    function setWidths() {
+        const w = wrap.offsetWidth / vis();
+        cards.forEach(function(c) { c.style.width = w + 'px'; });
+    }
+    function updateDots() {
+        document.querySelectorAll('.tc-dot').forEach(function(d, i) {
+            d.classList.toggle('act', i === current);
+        });
+    }
+    function buildDots() {
+        const dc = document.getElementById('tc-dots');
+        if (!dc) return;
+        dc.innerHTML = '';
+        for (let i = 0; i < pages(); i++) {
+            const d = document.createElement('button');
+            d.className = 'tc-dot';
+            d.setAttribute('aria-label', 'Go to page ' + (i + 1));
+            d.addEventListener('click', (function(idx) {
+                return function() { goTo(idx); startAuto(); };
+            })(i));
+            dc.appendChild(d);
+        }
+    }
+    function goTo(p) {
+        const n = pages();
+        current = ((p % n) + n) % n;
+        const w = wrap.offsetWidth / vis();
+        track.style.transform = 'translateX(-' + (current * vis() * w) + 'px)';
+        updateDots();
+    }
+    function startAuto() { clearInterval(timer); timer = setInterval(function() { goTo(current + 1); }, 5000); }
+    const prevBtn = document.getElementById('tc-prev');
+    const nextBtn = document.getElementById('tc-next');
+    if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); startAuto(); });
+    wrap.addEventListener('mouseenter', function() { clearInterval(timer); });
+    wrap.addEventListener('mouseleave', startAuto);
+    let sx = 0;
+    wrap.addEventListener('touchstart', function(e) { sx = e.touches[0].clientX; }, { passive: true });
+    wrap.addEventListener('touchend', function(e) {
+        const d = sx - e.changedTouches[0].clientX;
+        if (Math.abs(d) > 50) { goTo(current + (d > 0 ? 1 : -1)); startAuto(); }
+    }, { passive: true });
+    window.addEventListener('resize', function() { setWidths(); buildDots(); goTo(0); });
+    setWidths(); buildDots(); goTo(0); startAuto();
+})();
+</script>
+</body></html>
