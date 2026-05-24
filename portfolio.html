@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Inletix portfolio — real websites, ecommerce stores, and software projects built for businesses worldwide."/>
+<meta property="og:title" content="Portfolio | Inletix"/>
+<meta property="og:description" content="See the websites and software we've built for real clients."/>
+<meta property="og:type" content="website"/>
+<title>Portfolio | Inletix</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+body {
+    background-color: #0A0A0A;
+    color: #FFFFFF;
+}
+.glass-card {
+    background: rgba(18, 18, 18, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 9, 20, 0.15);
+}
+.glass-card:hover {
+    border-color: #E50914;
+    box-shadow: 0 0 18px rgba(229, 9, 20, 0.12);
+}
+.primary-glow:hover {
+    box-shadow: 0px 0px 18px rgba(229, 9, 20, 0.45);
+}
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu {
+    position: absolute; top: calc(100% + 10px); left: 50%;
+    transform: translateX(-50%) translateY(-6px); min-width: 232px;
+    background: rgba(8,8,8,0.97); backdrop-filter: blur(20px);
+    border: 1px solid rgba(229,9,20,0.25); border-radius: 14px; padding: 6px 0;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+    z-index: 200; box-shadow: 0 24px 48px rgba(0,0,0,0.70);
+}
+.nav-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+.nav-dropdown-menu a { display:flex; align-items:center; gap:10px; padding:10px 16px; font-size:13.5px; color:#888888; transition:color .14s,background .14s; white-space:nowrap; text-decoration:none; }
+.nav-dropdown-menu a:hover { color:#E50914; background:rgba(229,9,20,0.08); }
+.nav-dropdown-menu .dd-label { padding:8px 16px 4px; font-size:10.5px; letter-spacing:.1em; color:#444444; text-transform:uppercase; }
+.nav-dropdown-menu .dd-divider { border-top:1px solid rgba(229,9,20,0.14); margin:4px 0; }
+.nav-dropdown-btn { display:flex; align-items:center; gap:3px; background:none; border:none; padding:0; cursor:pointer; font-family:inherit; }
+
+/* site preview */
+.site-preview {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: #111111;
+}
+.site-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.portfolio-card:hover .site-preview img {
+    transform: scale(1.03);
+}
+.site-preview-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    background: rgba(10,10,10,0.55);
+    backdrop-filter: blur(0px);
+    transition: opacity 0.25s ease, backdrop-filter 0.25s ease;
+}
+.portfolio-card:hover .site-preview-overlay {
+    opacity: 1;
+    backdrop-filter: blur(3px);
+}
+.site-preview .img-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #444;
+    font-size: 13px;
+}
+.browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #111111;
+    border-bottom: 1px solid rgba(229,9,20,0.12);
+}
+.browser-dots { display: flex; gap: 6px; }
+.browser-dots span { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+.browser-url {
+    flex: 1;
+    background: #1A1A1A;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: #666;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@media (max-width: 767px) {
+    .text-display-lg { font-size: 36px !important; line-height: 44px !important; }
+    .pt-32 { padding-top: 96px !important; }
+    .py-20 { padding-top: 64px !important; padding-bottom: 64px !important; }
+    .gap-gutter { gap: 16px !important; }
+}
+html { scroll-behavior: smooth; }
+.whatsapp-fab { background: #25D366; box-shadow: 0 4px 16px rgba(37,211,102,.35); transition: transform .2s, box-shadow .2s; }
+.whatsapp-fab:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,.5); }
+#scroll-top-btn { opacity:0; visibility:hidden; transition:opacity .3s,visibility .3s,border-color .2s; }
+#scroll-top-btn.visible { opacity:1; visibility:visible; }
+#scroll-top-btn:hover { border-color:rgba(229,9,20,.5); color:#E50914; }
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "secondary-container": "#E50914",
+        "surface-container-lowest": "#0A0A0A",
+        "surface-container-low": "#111111",
+        "surface-container": "#161616",
+        "surface-container-high": "#1E1E1E",
+        "surface": "#0A0A0A",
+        "on-surface": "#FFFFFF",
+        "on-surface-variant": "#999999",
+        "outline-variant": "#2A2A2A",
+        "primary-container": "#E50914",
+        "on-primary-container": "#FFFFFF",
+        "primary": "#E50914",
+        "background": "#0A0A0A",
+        "outline": "#444444"
+      },
+      borderRadius: { "lg": "0.25rem", "xl": "0.5rem" },
+      spacing: {
+        "margin-mobile": "16px",
+        "margin-desktop": "48px",
+        "container-max": "1280px",
+        "gutter": "24px"
+      },
+      fontFamily: {
+        "body-md": ["IBM Plex Sans"], "body-lg": ["IBM Plex Sans"],
+        "headline-lg": ["IBM Plex Sans"], "headline-md": ["IBM Plex Sans"],
+        "label-sm": ["JetBrains Mono"], "display-lg": ["IBM Plex Sans"]
+      },
+      fontSize: {
+        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+        "display-lg": ["48px", {"lineHeight": "56px", "fontWeight": "700"}]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="font-body-md text-on-surface bg-surface-container-lowest">
+
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface" href="index.html">Inletix</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html#home">Home</a>
+<div class="nav-dropdown">
+<button class="nav-dropdown-btn font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">
+  Services <span class="material-symbols-outlined" style="font-size:17px;line-height:1;margin-top:1px">expand_more</span>
+</button>
+<div class="nav-dropdown-menu">
+  <a href="services.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">grid_view</span>All Services</a>
+  <div class="dd-divider"></div>
+  <div class="dd-label">Our Services</div>
+  <a href="web-development.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">code</span>Web Development</a>
+  <a href="software-development.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">terminal</span>Software Development</a>
+  <a href="ecommerce.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">shopping_cart</span>E-commerce</a>
+  <a href="it-support.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">support_agent</span>IT Support</a>
+  <a href="automation.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">auto_fix_high</span>Automation</a>
+</div>
+</div>
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary font-bold" href="portfolio.html">Portfolio</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</nav>
+<a class="hidden md:inline-block px-6 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow transition-all duration-300" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Get Started</a>
+<button aria-label="Open mobile menu" class="md:hidden w-10 h-10 rounded-lg border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary-container hover:border-secondary-container transition-colors" onclick="toggleMobileMenu()" type="button">
+<span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
+</button>
+</div>
+<div class="hidden md:hidden border-t border-outline-variant/20 bg-surface/95 backdrop-blur-xl" id="mobile-menu">
+<nav class="flex flex-col px-margin-mobile py-4 gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html#home">Home</a>
+<div>
+  <button onclick="toggleServicesDropdown()" class="flex items-center justify-between w-full font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">
+    Services <span class="material-symbols-outlined" id="services-dd-icon" style="font-size:18px;line-height:1">expand_more</span>
+  </button>
+  <div id="mobile-services-dd" style="display:none;flex-direction:column;gap:4px;margin-top:8px;padding-left:16px;border-left:1px solid rgba(229,9,20,0.22)">
+    <a href="services.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">grid_view</span>All Services</a>
+    <a href="web-development.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">code</span>Web Development</a>
+    <a href="software-development.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">terminal</span>Software Development</a>
+    <a href="ecommerce.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">shopping_cart</span>E-commerce</a>
+    <a href="it-support.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">support_agent</span>IT Support</a>
+    <a href="automation.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">auto_fix_high</span>Automation</a>
+  </div>
+</div>
+<a class="font-body-md text-body-md text-primary font-bold" href="portfolio.html">Portfolio</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Get Started</a>
+</nav>
+</div>
+</header>
+
+<main>
+<!-- Hero -->
+<section class="relative pt-32 pb-16 overflow-hidden">
+<div class="absolute inset-0" style="background:radial-gradient(circle at top right,rgba(229,9,20,0.1),transparent 40%),linear-gradient(180deg,#0A0A0A,#050505)"></div>
+<div class="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Our Work</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-4 max-w-3xl">Projects we've built for <span class="text-primary">real businesses.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Live websites and stores delivered for clients across Bangladesh and internationally. Each one built with care, clean code, and a focus on results.</p>
+</div>
+</section>
+
+<!-- Portfolio Grid -->
+<section class="py-16 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+
+<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-gutter" id="portfolio-grid">
+
+<!-- Card 1: Tabaya -->
+<div class="portfolio-card glass-card rounded-xl overflow-hidden group transition-all hover:-translate-y-1">
+  <div class="browser-bar">
+    <div class="browser-dots">
+      <span style="background:#E50914"></span>
+      <span style="background:#f59e0b"></span>
+      <span style="background:#22c55e"></span>
+    </div>
+    <div class="browser-url">www.tabaya.com</div>
+    <a href="https://www.tabaya.com" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary transition-colors" title="Open site">
+      <span class="material-symbols-outlined" style="font-size:16px;line-height:1">open_in_new</span>
+    </a>
+  </div>
+  <div class="site-preview">
+    <div class="img-loading" id="load-tabaya">
+      <span class="material-symbols-outlined" style="font-size:28px;color:rgba(229,9,20,0.3)">language</span>
+      <span>Loading preview…</span>
+    </div>
+    <img src="https://api.microlink.io/?url=https%3A%2F%2Fwww.tabaya.com&screenshot=true&meta=false&embed=screenshot.url"
+         alt="Tabaya website preview"
+         loading="lazy"
+         onload="document.getElementById('load-tabaya').style.display='none'"
+         onerror="this.src='https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.tabaya.com?w=1280&h=800';document.getElementById('load-tabaya').style.display='none'"/>
+    <div class="site-preview-overlay">
+      <a href="https://www.tabaya.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2 bg-primary text-white font-bold rounded-lg text-sm flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">open_in_new</span> Visit Site
+      </a>
+    </div>
+  </div>
+  <div class="p-6">
+    <div class="flex items-start justify-between gap-3 mb-3">
+      <h3 class="font-headline-md text-headline-md text-on-surface">Tabaya</h3>
+      <span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm whitespace-nowrap">Ecommerce</span>
+    </div>
+    <p class="text-on-surface-variant text-body-md mb-4">Ghorer Bazar — a full-featured online store with product catalog, cart, and seamless checkout experience.</p>
+    <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+      <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Bangladesh</span>
+      <a href="https://www.tabaya.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-primary font-semibold text-sm hover:underline">
+        Visit <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Card 2: Auriona -->
+<div class="portfolio-card glass-card rounded-xl overflow-hidden group transition-all hover:-translate-y-1">
+  <div class="browser-bar">
+    <div class="browser-dots">
+      <span style="background:#E50914"></span>
+      <span style="background:#f59e0b"></span>
+      <span style="background:#22c55e"></span>
+    </div>
+    <div class="browser-url">www.auriona.co</div>
+    <a href="https://www.auriona.co" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary transition-colors" title="Open site">
+      <span class="material-symbols-outlined" style="font-size:16px;line-height:1">open_in_new</span>
+    </a>
+  </div>
+  <div class="site-preview">
+    <div class="img-loading" id="load-auriona">
+      <span class="material-symbols-outlined" style="font-size:28px;color:rgba(229,9,20,0.3)">language</span>
+      <span>Loading preview…</span>
+    </div>
+    <img src="https://api.microlink.io/?url=https%3A%2F%2Fwww.auriona.co&screenshot=true&meta=false&embed=screenshot.url"
+         alt="Auriona website preview"
+         loading="lazy"
+         onload="document.getElementById('load-auriona').style.display='none'"
+         onerror="this.src='https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.auriona.co?w=1280&h=800';document.getElementById('load-auriona').style.display='none'"/>
+    <div class="site-preview-overlay">
+      <a href="https://www.auriona.co" target="_blank" rel="noopener noreferrer" class="px-5 py-2 bg-primary text-white font-bold rounded-lg text-sm flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">open_in_new</span> Visit Site
+      </a>
+    </div>
+  </div>
+  <div class="p-6">
+    <div class="flex items-start justify-between gap-3 mb-3">
+      <h3 class="font-headline-md text-headline-md text-on-surface">Auriona</h3>
+      <span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm whitespace-nowrap">Web Design</span>
+    </div>
+    <p class="text-on-surface-variant text-body-md mb-4">Netherlands client — a polished, modern web presence built for a European market with clean design and fast performance.</p>
+    <div class="flex items-center justify-between pt-4 border-t border-outline-variant/20">
+      <span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Netherlands</span>
+      <a href="https://www.auriona.co" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-primary font-semibold text-sm hover:underline">
+        Visit <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Placeholder card — more coming -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col items-center justify-center min-h-[400px] border-dashed" style="border-color:rgba(229,9,20,0.2)">
+  <span class="material-symbols-outlined text-5xl mb-4" style="color:rgba(229,9,20,0.3)">add_circle</span>
+  <p class="font-headline-md text-headline-md text-on-surface-variant text-center px-8">More projects coming soon</p>
+  <p class="text-on-surface-variant text-body-md text-center px-8 mt-2">We're adding more client work to this gallery regularly.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="glass-card rounded-xl p-12 text-center">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Start Your Project</span>
+<h2 class="font-display-lg text-display-lg mb-6">Want your business in here?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">Tell us what you need and we'll build it right. Websites, stores, software — delivered cleanly and on time.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a class="px-10 py-4 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-body-md transition-all inline-block text-center" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Start a Project</a>
+<a class="px-10 py-4 border border-secondary-container text-secondary-container font-bold rounded-lg hover:bg-secondary-container/10 transition-all inline-block text-center" href="services.html">View Services</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col md:flex-row justify-between items-start gap-10 mb-10">
+<div class="flex flex-col gap-3 max-w-xs">
+<div class="text-headline-md font-headline-md font-bold text-on-surface">Inletix</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Complete IT solutions for modern businesses — websites, software, ecommerce, and reliable support.</p>
+<a class="font-body-md text-body-md text-secondary-container hover:underline transition-colors w-fit" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">+880 1410-007505</a>
+</div>
+<div class="flex flex-col sm:flex-row gap-10">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Services</p>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="web-development.html">Web Development</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="software-development.html">Software Development</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="services.html">All Services</a>
+</div>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Company</p>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="portfolio.html">Portfolio</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-outline-variant/20">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2026 Inletix. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/8801410007505" target="_blank" rel="noopener noreferrer" class="whatsapp-fab fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center" aria-label="Chat on WhatsApp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.867-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+</a>
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 right-6 z-50 w-11 h-11 rounded-full flex items-center justify-center shadow-lg border border-outline-variant/40 text-on-surface-variant" style="background:rgba(12,12,12,0.92);backdrop-filter:blur(8px)" aria-label="Scroll to top">
+<span class="material-symbols-outlined text-xl">arrow_upward</span>
+</button>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('mobile-menu-icon');
+    if (!menu || !icon) return;
+    menu.classList.toggle('hidden');
+    icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+}
+function toggleServicesDropdown() {
+    var menu = document.getElementById('mobile-services-dd');
+    var icon = document.getElementById('services-dd-icon');
+    var open = menu.style.display === 'flex';
+    menu.style.display = open ? 'none' : 'flex';
+    icon.textContent = open ? 'expand_more' : 'expand_less';
+}
+const _stb = document.getElementById('scroll-top-btn');
+if (_stb) window.addEventListener('scroll', () => _stb.classList.toggle('visible', scrollY > 400), {passive:true});
+</script>
+</body>
+</html>
