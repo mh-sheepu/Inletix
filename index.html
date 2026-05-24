@@ -77,6 +77,8 @@ rel="stylesheet">
 
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 
 <!-- Structured Data -->
 <script type="application/ld+json">
@@ -424,6 +426,7 @@ rel="stylesheet">
   <a href="ecommerce.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">shopping_cart</span>E-commerce</a>
   <a href="it-support.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">support_agent</span>IT Support</a>
   <a href="automation.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">auto_fix_high</span>Automation</a>
+  <a href="digital-marketing.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">campaign</span>Digital Marketing</a>
 </div>
 </div>
 <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
@@ -450,6 +453,7 @@ rel="stylesheet">
     <a href="ecommerce.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">shopping_cart</span>E-commerce</a>
     <a href="it-support.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">support_agent</span>IT Support</a>
     <a href="automation.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">auto_fix_high</span>Automation</a>
+    <a href="digital-marketing.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">campaign</span>Digital Marketing</a>
   </div>
 </div>
 <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="portfolio.html">Portfolio</a>
@@ -468,7 +472,8 @@ rel="stylesheet">
 <div class="absolute inset-0 bg-gradient-to-b from-surface-container-lowest via-transparent to-surface-container-lowest"></div>
 </div>
 <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="max-w-3xl">
+<div class="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center w-full">
+<div>
 <span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm">
                         GLOBAL IT SOLUTIONS COMPANY
                     </span>
@@ -502,14 +507,161 @@ rel="stylesheet">
 </div>
 </div>
 </div>
+
+<!-- World Map Right Column -->
+<div class="block">
+<div class="relative rounded-xl overflow-hidden" style="background:rgba(5,5,5,0.96);border:1px solid rgba(229,9,20,0.22);box-shadow:0 0 48px rgba(229,9,20,0.07)">
+
+  <!-- Header bar -->
+  <div class="flex items-center justify-between px-5 py-3" style="border-bottom:1px solid rgba(229,9,20,0.14)">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-primary" style="animation:mapBlink 1.5s ease-in-out infinite"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#777;text-transform:uppercase">Global Reach</span>
+    </div>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#E50914;font-weight:700">13+ Countries</span>
+  </div>
+
+  <!-- D3 World Map Container -->
+  <div id="world-map-container" style="background:#060606;line-height:0"></div>
+
+  <!-- Footer row -->
+  <div class="grid grid-cols-3" style="border-top:1px solid rgba(229,9,20,0.14)">
+    <div class="px-4 py-3 text-center" style="border-right:1px solid rgba(229,9,20,0.14)">
+      <div class="font-bold text-primary text-xl">13+</div>
+      <div style="font-size:9px;color:#555;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em">Countries</div>
+    </div>
+    <div class="px-4 py-3 text-center" style="border-right:1px solid rgba(229,9,20,0.14)">
+      <div class="font-bold text-primary text-xl">4</div>
+      <div style="font-size:9px;color:#555;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em">Continents</div>
+    </div>
+    <div class="px-4 py-3 text-center">
+      <div class="font-bold text-primary text-xl">50+</div>
+      <div style="font-size:9px;color:#555;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em">Projects Global</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div>
 </div>
 </section>
+
+<style>
+@keyframes mapPulse {
+  0%   { opacity: 0.7; transform: scale(1); }
+  70%  { opacity: 0;   transform: scale(2.8); }
+  100% { opacity: 0;   transform: scale(2.8); }
+}
+@keyframes mapBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.map-ring { transform-box: fill-box; transform-origin: center; }
+</style>
+<script>
+(function() {
+  var markers = [
+    { name:'Bangladesh', lat:23.7,  lon:90.4,  home:true,  delay:0   },
+    { name:'Netherlands',lat:52.4,  lon:4.9,   home:false, delay:0.4 },
+    { name:'UK',         lat:53.0,  lon:-2.0,  home:false, delay:0.8 },
+    { name:'Germany',    lat:51.0,  lon:10.0,  home:false, delay:1.2 },
+    { name:'USA',        lat:38.0,  lon:-97.0, home:false, delay:1.6 },
+    { name:'Canada',     lat:60.0,  lon:-95.0, home:false, delay:2.0 },
+    { name:'UAE',        lat:24.0,  lon:54.0,  home:false, delay:2.4 },
+    { name:'India',      lat:20.0,  lon:77.0,  home:false, delay:2.8 },
+    { name:'Singapore',  lat:1.3,   lon:103.8, home:false, delay:3.2 },
+    { name:'Japan',      lat:36.0,  lon:138.0, home:false, delay:3.6 },
+    { name:'Australia',  lat:-25.0, lon:135.0, home:false, delay:4.0 },
+    { name:'Brazil',     lat:-15.0, lon:-50.0, home:false, delay:4.4 },
+    { name:'SouthAfrica',lat:-30.0, lon:26.0,  home:false, delay:4.8 }
+  ];
+
+  function renderMap() {
+    var el = document.getElementById('world-map-container');
+    if (!el || typeof d3 === 'undefined' || typeof topojson === 'undefined') return;
+
+    var W = el.offsetWidth || 580, H = Math.round(W * 308 / 580);
+    var svg = d3.select(el).append('svg')
+      .attr('viewBox', '0 0 ' + W + ' ' + H)
+      .attr('width', '100%')
+      .style('display', 'block')
+      .style('background', '#060606');
+
+    var projection = d3.geoNaturalEarth1().fitSize([W, H], {type:'Sphere'});
+    var path = d3.geoPath().projection(projection);
+
+    /* Graticule grid */
+    var grat = d3.geoGraticule().step([30, 30]);
+    svg.append('path').datum(grat())
+      .attr('d', path).attr('fill', 'none')
+      .attr('stroke', 'rgba(255,255,255,0.04)').attr('stroke-width', '0.6');
+
+    fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+      .then(function(r){ return r.json(); })
+      .then(function(world) {
+        /* Country fills */
+        svg.append('g').selectAll('path')
+          .data(topojson.feature(world, world.objects.countries).features)
+          .join('path').attr('d', path)
+          .attr('fill', 'rgba(229,9,20,0.1)')
+          .attr('stroke', 'rgba(229,9,20,0.28)')
+          .attr('stroke-width', '0.45');
+
+        /* Country border mesh */
+        svg.append('path')
+          .datum(topojson.mesh(world, world.objects.countries, function(a,b){ return a!==b; }))
+          .attr('d', path).attr('fill', 'none')
+          .attr('stroke', 'rgba(229,9,20,0.18)').attr('stroke-width', '0.3');
+
+        /* Dots */
+        markers.forEach(function(m) {
+          var pos = projection([m.lon, m.lat]);
+          if (!pos) return;
+          var x = pos[0], y = pos[1];
+          var pr = m.home ? 12 : 9, r = m.home ? 5 : 3.5;
+
+          /* Pulse ring */
+          svg.append('circle').attr('cx', x).attr('cy', y).attr('r', pr)
+            .attr('fill', 'none').attr('stroke', '#E50914')
+            .attr('stroke-width', m.home ? '1.2' : '0.8')
+            .attr('class', 'map-ring')
+            .style('animation', 'mapPulse 2s ease-out ' + m.delay + 's infinite');
+
+          /* Core dot */
+          var dot = svg.append('circle').attr('cx', x).attr('cy', y).attr('r', r)
+            .attr('fill', '#E50914');
+          if (!m.home) dot.style('animation', 'mapBlink 2.8s ease-in-out ' + m.delay + 's infinite');
+
+          /* Bangladesh label */
+          if (m.home) {
+            svg.append('text').attr('x', x+8).attr('y', y-2)
+              .attr('fill', '#E50914').attr('font-size', Math.round(W*8/580))
+              .attr('font-family', 'JetBrains Mono,monospace').attr('font-weight', '700')
+              .text('BANGLADESH');
+            svg.append('text').attr('x', x+8).attr('y', y+8)
+              .attr('fill', 'rgba(229,9,20,0.55)').attr('font-size', Math.round(W*7/580))
+              .attr('font-family', 'JetBrains Mono,monospace').text('HQ');
+          }
+        });
+      })
+      .catch(function(){});
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderMap);
+  } else {
+    renderMap();
+  }
+})();
+</script>
+
 <!-- Technology Carousel -->
 <section class="py-8 bg-surface-container-lowest border-y border-outline-variant/20">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="flex flex-col gap-6">
 <div class="text-center">
-<p class="font-label-sm text-label-sm uppercase text-on-surface-variant">Our Stack</p>
+<p class="font-label-sm text-label-sm uppercase text-primary">Our Stack</p>
 </div>
 <div class="logo-marquee overflow-hidden">
 <div class="logo-marquee-track flex w-max items-center gap-12">

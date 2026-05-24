@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Digital marketing services by Inletix — Facebook Ads, page management, boosting, Instagram marketing, Google Ads, and full social media strategy for your business."/>
+<meta property="og:title" content="Digital Marketing | Inletix"/>
+<meta property="og:description" content="Grow your business with targeted Facebook Ads, social media management, and digital marketing campaigns."/>
+<meta property="og:type" content="website"/>
+<title>Digital Marketing | Inletix</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+body { background-color: #0A0A0A; color: #FFFFFF; }
+.glass-card {
+    background: rgba(18,18,18,0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(229,9,20,0.15);
+}
+.glass-card:hover {
+    border-color: #E50914;
+    box-shadow: 0 0 18px rgba(229,9,20,0.12);
+}
+.glass-card-featured {
+    background: rgba(18,18,18,0.92);
+    backdrop-filter: blur(12px);
+    border: 2px solid #E50914;
+    box-shadow: 0 0 24px rgba(229,9,20,0.18);
+}
+.primary-glow:hover { box-shadow: 0px 0px 18px rgba(229,9,20,0.45); }
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu {
+    position: absolute; top: calc(100% + 10px); left: 50%;
+    transform: translateX(-50%) translateY(-6px); min-width: 232px;
+    background: rgba(8,8,8,0.97); backdrop-filter: blur(20px);
+    border: 1px solid rgba(229,9,20,0.25); border-radius: 14px; padding: 6px 0;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.18s ease, visibility 0.18s ease, transform 0.18s ease;
+    z-index: 200; box-shadow: 0 24px 48px rgba(0,0,0,0.70);
+}
+.nav-dropdown:hover .nav-dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+.nav-dropdown-menu a { display:flex; align-items:center; gap:10px; padding:10px 16px; font-size:13.5px; color:#888888; transition:color .14s,background .14s; white-space:nowrap; text-decoration:none; }
+.nav-dropdown-menu a:hover { color:#E50914; background:rgba(229,9,20,0.08); }
+.nav-dropdown-menu .dd-label { padding:8px 16px 4px; font-size:10.5px; letter-spacing:.1em; color:#444444; text-transform:uppercase; }
+.nav-dropdown-menu .dd-divider { border-top:1px solid rgba(229,9,20,0.14); margin:4px 0; }
+.nav-dropdown-btn { display:flex; align-items:center; gap:3px; background:none; border:none; padding:0; cursor:pointer; font-family:inherit; }
+.stat-card {
+    background: rgba(229,9,20,0.06);
+    border: 1px solid rgba(229,9,20,0.18);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+.platform-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; font-size: 24px;
+}
+@media (max-width: 767px) {
+    .text-display-lg { font-size: 36px !important; line-height: 44px !important; }
+    .pt-32 { padding-top: 96px !important; }
+    .py-20 { padding-top: 64px !important; padding-bottom: 64px !important; }
+    .gap-gutter { gap: 16px !important; }
+    .p-8 { padding: 24px !important; }
+}
+html { scroll-behavior: smooth; }
+.whatsapp-fab { background:#25D366; box-shadow:0 4px 16px rgba(37,211,102,.35); transition:transform .2s,box-shadow .2s; }
+.whatsapp-fab:hover { transform:scale(1.1); box-shadow:0 8px 28px rgba(37,211,102,.5); }
+#scroll-top-btn { opacity:0; visibility:hidden; transition:opacity .3s,visibility .3s,border-color .2s; }
+#scroll-top-btn.visible { opacity:1; visibility:visible; }
+#scroll-top-btn:hover { border-color:rgba(229,9,20,.5); color:#E50914; }
+</style>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "secondary-container": "#E50914",
+        "surface-container-lowest": "#0A0A0A",
+        "surface-container-low": "#111111",
+        "surface-container": "#161616",
+        "surface-container-high": "#1E1E1E",
+        "surface": "#0A0A0A",
+        "on-surface": "#FFFFFF",
+        "on-surface-variant": "#999999",
+        "outline-variant": "#2A2A2A",
+        "primary-container": "#E50914",
+        "on-primary-container": "#FFFFFF",
+        "primary": "#E50914",
+        "background": "#0A0A0A",
+        "outline": "#444444"
+      },
+      borderRadius: { "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+      spacing: {
+        "margin-mobile": "16px", "margin-desktop": "48px",
+        "container-max": "1280px", "gutter": "24px"
+      },
+      fontFamily: {
+        "body-md": ["IBM Plex Sans"], "body-lg": ["IBM Plex Sans"],
+        "headline-lg": ["IBM Plex Sans"], "headline-md": ["IBM Plex Sans"],
+        "label-sm": ["JetBrains Mono"], "display-lg": ["IBM Plex Sans"]
+      },
+      fontSize: {
+        "body-md": ["16px", {"lineHeight":"24px","fontWeight":"400"}],
+        "body-lg": ["18px", {"lineHeight":"28px","fontWeight":"400"}],
+        "headline-lg": ["32px", {"lineHeight":"40px","fontWeight":"600"}],
+        "headline-md": ["24px", {"lineHeight":"32px","fontWeight":"600"}],
+        "label-sm": ["12px", {"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"500"}],
+        "display-lg": ["48px", {"lineHeight":"56px","fontWeight":"700"}]
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="font-body-md text-on-surface bg-surface-container-lowest">
+
+<!-- Header -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="text-headline-md font-headline-md font-bold tracking-tight text-on-surface" href="index.html">Inletix</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html#home">Home</a>
+<div class="nav-dropdown">
+<button class="nav-dropdown-btn font-body-md text-body-md text-primary border-b-2 border-primary font-bold">
+  Services <span class="material-symbols-outlined" style="font-size:17px;line-height:1;margin-top:1px">expand_more</span>
+</button>
+<div class="nav-dropdown-menu">
+  <a href="services.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">grid_view</span>All Services</a>
+  <div class="dd-divider"></div>
+  <div class="dd-label">Our Services</div>
+  <a href="web-development.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">code</span>Web Development</a>
+  <a href="software-development.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">terminal</span>Software Development</a>
+  <a href="ecommerce.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">shopping_cart</span>E-commerce</a>
+  <a href="it-support.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">support_agent</span>IT Support</a>
+  <a href="automation.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">auto_fix_high</span>Automation</a>
+  <a href="digital-marketing.html"><span class="material-symbols-outlined" style="font-size:16px;line-height:1">campaign</span>Digital Marketing</a>
+</div>
+</div>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="portfolio.html">Portfolio</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</nav>
+<a class="hidden md:inline-block px-6 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow transition-all duration-300" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Get Started</a>
+<button aria-label="Open mobile menu" class="md:hidden w-10 h-10 rounded-lg border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary-container hover:border-secondary-container transition-colors" onclick="toggleMobileMenu()" type="button">
+<span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
+</button>
+</div>
+<div class="hidden md:hidden border-t border-outline-variant/20 bg-surface/95 backdrop-blur-xl" id="mobile-menu">
+<nav class="flex flex-col px-margin-mobile py-4 gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="index.html#home">Home</a>
+<div>
+  <button onclick="toggleServicesDropdown()" class="flex items-center justify-between w-full font-body-md text-body-md text-primary font-bold">
+    Services <span class="material-symbols-outlined" id="services-dd-icon" style="font-size:18px;line-height:1">expand_more</span>
+  </button>
+  <div id="mobile-services-dd" style="display:none;flex-direction:column;gap:4px;margin-top:8px;padding-left:16px;border-left:1px solid rgba(229,9,20,0.22)">
+    <a href="services.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">grid_view</span>All Services</a>
+    <a href="web-development.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">code</span>Web Development</a>
+    <a href="software-development.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">terminal</span>Software Development</a>
+    <a href="ecommerce.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">shopping_cart</span>E-commerce</a>
+    <a href="it-support.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">support_agent</span>IT Support</a>
+    <a href="automation.html" class="flex items-center gap-2 py-2 text-sm text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">auto_fix_high</span>Automation</a>
+    <a href="digital-marketing.html" class="flex items-center gap-2 py-2 text-sm text-primary font-semibold transition-colors"><span class="material-symbols-outlined" style="font-size:15px;line-height:1">campaign</span>Digital Marketing</a>
+  </div>
+</div>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="portfolio.html">Portfolio</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Get Started</a>
+</nav>
+</div>
+</header>
+
+<main>
+<!-- Hero -->
+<section class="relative pt-32 pb-20 overflow-hidden">
+<div class="absolute inset-0" style="background:radial-gradient(circle at top right,rgba(229,9,20,0.12),transparent 40%),linear-gradient(180deg,#0A0A0A,#050505)"></div>
+<div class="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<a class="inline-flex items-center gap-2 text-primary hover:underline transition-colors mb-10" href="services.html">
+<span class="material-symbols-outlined text-base">arrow_back</span> Back to services
+</a>
+<div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+<div>
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Digital Marketing Service</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6">Grow faster with targeted digital marketing.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">We run Facebook Ads, manage pages, boost posts, and build full social media strategies that bring real customers to your business — not just clicks.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="px-8 py-4 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-body-md transition-all inline-block text-center" href="https://wa.me/8801410007505?text=I%20need%20digital%20marketing%20help" rel="noopener noreferrer" target="_blank">Start a Campaign</a>
+<a class="px-8 py-4 border border-secondary-container text-secondary-container font-bold rounded-lg hover:bg-secondary-container/10 transition-all inline-block text-center" href="#pricing">View Pricing</a>
+</div>
+</div>
+<div class="glass-card rounded-xl p-8">
+<span class="material-symbols-outlined text-secondary-container text-5xl mb-6">campaign</span>
+<h2 class="font-headline-md text-headline-md mb-5">What You Get</h2>
+<ul class="space-y-4 text-on-surface-variant">
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-base mt-1">check_circle</span><span>Facebook & Instagram Ads managed end-to-end.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-base mt-1">check_circle</span><span>Ad creatives, copy, audience targeting, and A/B testing.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-base mt-1">check_circle</span><span>Page management, post scheduling, and community responses.</span></li>
+<li class="flex gap-3"><span class="material-symbols-outlined text-secondary-container text-base mt-1">check_circle</span><span>Weekly performance reports with clear results and next steps.</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Stats -->
+<section class="py-12 bg-surface-container-low border-y border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="stat-card">
+<div class="text-3xl font-bold text-primary mb-1">3×</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Avg. ROAS</div>
+</div>
+<div class="stat-card">
+<div class="text-3xl font-bold text-primary mb-1">48h</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Campaign Setup</div>
+</div>
+<div class="stat-card">
+<div class="text-3xl font-bold text-primary mb-1">24/7</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Ad Monitoring</div>
+</div>
+<div class="stat-card">
+<div class="text-3xl font-bold text-primary mb-1">100%</div>
+<div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Transparent Reports</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Services Detail -->
+<section class="py-20 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12 text-center">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">What We Do</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">Full-stack digital marketing</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">From setting up your ad account to scaling your campaigns, we handle every part of your digital marketing.</p>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+
+<!-- Facebook Ads -->
+<div class="glass-card rounded-xl p-8 group hover:-translate-y-1 transition-all">
+<div class="platform-icon mb-4" style="background:rgba(24,119,242,0.15)">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Facebook Ads</h3>
+<p class="text-on-surface-variant mb-5">Full campaign setup — objectives, audiences, placements, budgets, and creatives optimized for conversions and reach.</p>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Conversion & traffic campaigns</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Lookalike & retargeting audiences</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>A/B testing & budget optimization</li>
+</ul>
+</div>
+
+<!-- Post Boosting -->
+<div class="glass-card rounded-xl p-8 group hover:-translate-y-1 transition-all">
+<div class="platform-icon mb-4" style="background:rgba(229,9,20,0.12)">
+  <span class="material-symbols-outlined text-primary" style="font-size:28px">rocket_launch</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Post Boosting</h3>
+<p class="text-on-surface-variant mb-5">Turn your best organic posts into paid reach. We select the right posts, set the right audience, and boost for maximum engagement.</p>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Smart post selection</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Audience & location targeting</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Engagement & reach tracking</li>
+</ul>
+</div>
+
+<!-- Instagram Ads -->
+<div class="glass-card rounded-xl p-8 group hover:-translate-y-1 transition-all">
+<div class="platform-icon mb-4" style="background:rgba(225,48,108,0.12)">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="url(#igGrad)">
+    <defs><linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+  </svg>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Instagram Marketing</h3>
+<p class="text-on-surface-variant mb-5">Reels, Stories, and feed ads designed for Instagram's audience. Visual-first creatives that stop the scroll and drive action.</p>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Reels & Stories ad formats</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Profile growth strategy</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Shopping & product tag ads</li>
+</ul>
+</div>
+
+<!-- Page Management -->
+<div class="glass-card rounded-xl p-8 group hover:-translate-y-1 transition-all">
+<div class="platform-icon mb-4" style="background:rgba(229,9,20,0.12)">
+  <span class="material-symbols-outlined text-primary" style="font-size:28px">manage_accounts</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Page Management</h3>
+<p class="text-on-surface-variant mb-5">We manage your Facebook & Instagram pages daily — posts, stories, replies, and scheduling so your brand stays active and consistent.</p>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Content calendar & scheduling</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Comment & message responses</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Branded graphics & captions</li>
+</ul>
+</div>
+
+<!-- Ad Creative -->
+<div class="glass-card rounded-xl p-8 group hover:-translate-y-1 transition-all">
+<div class="platform-icon mb-4" style="background:rgba(229,9,20,0.12)">
+  <span class="material-symbols-outlined text-primary" style="font-size:28px">palette</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Ad Creative Design</h3>
+<p class="text-on-surface-variant mb-5">High-converting ad visuals — banners, videos, carousels, and copy written to match your brand voice and audience intent.</p>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Static & animated ad banners</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Ad copywriting & CTA optimization</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Multiple size variants included</li>
+</ul>
+</div>
+
+<!-- Reporting -->
+<div class="glass-card rounded-xl p-8 group hover:-translate-y-1 transition-all">
+<div class="platform-icon mb-4" style="background:rgba(229,9,20,0.12)">
+  <span class="material-symbols-outlined text-primary" style="font-size:28px">bar_chart</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-3">Analytics & Reporting</h3>
+<p class="text-on-surface-variant mb-5">Clear weekly and monthly performance reports — reach, clicks, conversions, cost per result, and what we're doing next to improve.</p>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Pixel setup & event tracking</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>Weekly performance summaries</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container" style="font-size:15px;margin-top:2px">check_circle</span>ROI & cost-per-result tracking</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- How It Works -->
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">How It Works</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">From zero to running campaigns in 48 hours</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">We move fast. Once you share your goals and budget, we set up everything and launch.</p>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="glass-card rounded-xl p-6">
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+<span class="font-label-sm text-label-sm text-primary font-bold">01</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-3xl mb-4">chat</span>
+<h3 class="font-headline-md text-headline-md mb-2">Brief</h3>
+<p class="text-on-surface-variant text-body-md">Tell us your product, target audience, budget, and goal. We review and suggest a campaign structure.</p>
+</div>
+<div class="glass-card rounded-xl p-6">
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+<span class="font-label-sm text-label-sm text-primary font-bold">02</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-3xl mb-4">palette</span>
+<h3 class="font-headline-md text-headline-md mb-2">Creative</h3>
+<p class="text-on-surface-variant text-body-md">We design the ad creatives and write the copy. You approve before anything goes live.</p>
+</div>
+<div class="glass-card rounded-xl p-6">
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+<span class="font-label-sm text-label-sm text-primary font-bold">03</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-3xl mb-4">rocket_launch</span>
+<h3 class="font-headline-md text-headline-md mb-2">Launch</h3>
+<p class="text-on-surface-variant text-body-md">Campaigns go live. We monitor performance daily and make adjustments in real time.</p>
+</div>
+<div class="glass-card rounded-xl p-6">
+<div class="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+<span class="font-label-sm text-label-sm text-primary font-bold">04</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-3xl mb-4">bar_chart</span>
+<h3 class="font-headline-md text-headline-md mb-2">Report</h3>
+<p class="text-on-surface-variant text-body-md">Weekly reports with results, insights, and recommendations to keep improving your ROI.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Growth Graph Section -->
+<section class="py-20 bg-surface-container-lowest" id="results">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-center">
+
+<!-- Left: labels + stat counters -->
+<div>
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Campaign Results</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">Real results from real ad campaigns.</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10">Every campaign we run is tracked, optimized, and reported. Our clients see measurable growth in reach, leads, and return on ad spend within weeks.</p>
+
+<div class="grid grid-cols-3 gap-4 mb-10">
+<div class="glass-card rounded-xl p-5 text-center">
+  <div class="text-3xl font-bold text-primary mb-1 dm-counter" data-target="3" data-suffix="×">0×</div>
+  <div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant" style="font-size:10px">Avg. ROAS</div>
+</div>
+<div class="glass-card rounded-xl p-5 text-center">
+  <div class="text-3xl font-bold text-primary mb-1 dm-counter" data-target="320" data-suffix="%">0%</div>
+  <div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant" style="font-size:10px">Reach Growth</div>
+</div>
+<div class="glass-card rounded-xl p-5 text-center">
+  <div class="text-3xl font-bold text-primary mb-1 dm-counter" data-target="42" data-suffix="%">0%</div>
+  <div class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant" style="font-size:10px">Cost Reduction</div>
+</div>
+</div>
+
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+  <span class="w-3 h-3 rounded-full flex-shrink-0" style="background:#E50914"></span>
+  <span class="text-on-surface-variant text-body-md">Ad Reach &amp; Impressions</span>
+</div>
+<div class="flex items-center gap-3">
+  <span class="w-3 h-3 rounded-full flex-shrink-0" style="background:rgba(229,9,20,0.4)"></span>
+  <span class="text-on-surface-variant text-body-md">Return on Ad Spend (ROAS)</span>
+</div>
+</div>
+</div>
+
+<!-- Right: SVG Chart -->
+<div class="glass-card rounded-xl overflow-hidden">
+<div class="flex items-center justify-between px-6 py-4 border-b border-outline-variant/20">
+  <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Campaign Performance — 6 Months</span>
+  <span class="flex items-center gap-1 text-primary text-sm font-semibold">
+    <span class="material-symbols-outlined text-sm">trending_up</span> +320%
+  </span>
+</div>
+
+<div class="p-4 bg-[#080808]">
+<svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" class="w-full" id="dm-growth-svg" style="overflow:visible">
+<line x1="50" y1="20"  x2="540" y2="20"  stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+<line x1="50" y1="75"  x2="540" y2="75"  stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+<line x1="50" y1="130" x2="540" y2="130" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+<line x1="50" y1="185" x2="540" y2="185" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+<line x1="50" y1="240" x2="540" y2="240" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+<text x="42" y="24"  fill="#444" font-size="10" text-anchor="end" font-family="JetBrains Mono">100%</text>
+<text x="42" y="79"  fill="#444" font-size="10" text-anchor="end" font-family="JetBrains Mono">75%</text>
+<text x="42" y="134" fill="#444" font-size="10" text-anchor="end" font-family="JetBrains Mono">50%</text>
+<text x="42" y="189" fill="#444" font-size="10" text-anchor="end" font-family="JetBrains Mono">25%</text>
+<text x="42" y="244" fill="#444" font-size="10" text-anchor="end" font-family="JetBrains Mono">0%</text>
+<text x="80"  y="268" fill="#555" font-size="10" text-anchor="middle" font-family="JetBrains Mono">Month 1</text>
+<text x="178" y="268" fill="#555" font-size="10" text-anchor="middle" font-family="JetBrains Mono">Month 2</text>
+<text x="276" y="268" fill="#555" font-size="10" text-anchor="middle" font-family="JetBrains Mono">Month 3</text>
+<text x="374" y="268" fill="#555" font-size="10" text-anchor="middle" font-family="JetBrains Mono">Month 4</text>
+<text x="462" y="268" fill="#555" font-size="10" text-anchor="middle" font-family="JetBrains Mono">Month 5</text>
+<text x="530" y="268" fill="#555" font-size="10" text-anchor="middle" font-family="JetBrains Mono">Month 6</text>
+<defs>
+  <linearGradient id="dmReachGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#E50914" stop-opacity="0.25"/>
+    <stop offset="100%" stop-color="#E50914" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="dmRoasGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#E50914" stop-opacity="0.1"/>
+    <stop offset="100%" stop-color="#E50914" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<path id="dm-reach-area"
+  d="M80,240 L80,228 C120,216 148,204 178,186 C218,162 246,140 276,116 C316,88 342,66 374,50 C408,34 436,24 462,18 C496,14 516,12 530,10 L530,240 Z"
+  fill="url(#dmReachGrad)" opacity="0"/>
+<path id="dm-roas-area"
+  d="M80,240 L80,234 C120,228 148,220 178,210 C218,194 246,178 276,162 C316,142 342,124 374,108 C408,90 436,78 462,68 C496,56 516,50 530,46 L530,240 Z"
+  fill="url(#dmRoasGrad)" opacity="0"/>
+<path id="dm-reach-line"
+  d="M80,228 C120,216 148,204 178,186 C218,162 246,140 276,116 C316,88 342,66 374,50 C408,34 436,24 462,18 C496,14 516,12 530,10"
+  fill="none" stroke="#E50914" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="dm-roas-line"
+  d="M80,234 C120,228 148,220 178,210 C218,194 246,178 276,162 C316,142 342,124 374,108 C408,90 436,78 462,68 C496,56 516,50 530,46"
+  fill="none" stroke="rgba(229,9,20,0.45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3"/>
+<circle class="dm-graph-dot" cx="80"  cy="228" r="4" fill="#E50914" stroke="#080808" stroke-width="2" opacity="0"/>
+<circle class="dm-graph-dot" cx="178" cy="186" r="4" fill="#E50914" stroke="#080808" stroke-width="2" opacity="0"/>
+<circle class="dm-graph-dot" cx="276" cy="116" r="4" fill="#E50914" stroke="#080808" stroke-width="2" opacity="0"/>
+<circle class="dm-graph-dot" cx="374" cy="50"  r="4" fill="#E50914" stroke="#080808" stroke-width="2" opacity="0"/>
+<circle class="dm-graph-dot" cx="462" cy="18"  r="4" fill="#E50914" stroke="#080808" stroke-width="2" opacity="0"/>
+<circle class="dm-graph-dot" cx="530" cy="10"  r="5" fill="#E50914" stroke="#E50914" stroke-width="3" opacity="0"/>
+<g id="dm-tooltip" opacity="0">
+  <rect x="486" y="-8" width="66" height="22" rx="5" fill="#E50914"/>
+  <text x="519" y="7" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="IBM Plex Sans">+320%</text>
+</g>
+<circle class="dm-graph-dot-roas" cx="80"  cy="234" r="3" fill="rgba(229,9,20,0.6)" stroke="#080808" stroke-width="1.5" opacity="0"/>
+<circle class="dm-graph-dot-roas" cx="178" cy="210" r="3" fill="rgba(229,9,20,0.6)" stroke="#080808" stroke-width="1.5" opacity="0"/>
+<circle class="dm-graph-dot-roas" cx="276" cy="162" r="3" fill="rgba(229,9,20,0.6)" stroke="#080808" stroke-width="1.5" opacity="0"/>
+<circle class="dm-graph-dot-roas" cx="374" cy="108" r="3" fill="rgba(229,9,20,0.6)" stroke="#080808" stroke-width="1.5" opacity="0"/>
+<circle class="dm-graph-dot-roas" cx="462" cy="68"  r="3" fill="rgba(229,9,20,0.6)" stroke="#080808" stroke-width="1.5" opacity="0"/>
+<circle class="dm-graph-dot-roas" cx="530" cy="46"  r="3" fill="rgba(229,9,20,0.6)" stroke="#080808" stroke-width="1.5" opacity="0"/>
+<line x1="50" y1="240" x2="540" y2="240" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+</svg>
+</div>
+
+<div class="grid grid-cols-3 border-t border-outline-variant/20">
+<div class="px-6 py-4 border-r border-outline-variant/20">
+  <div class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Reach</div>
+  <div class="font-bold text-on-surface text-lg">+320% <span class="text-primary text-sm">↑</span></div>
+</div>
+<div class="px-6 py-4 border-r border-outline-variant/20">
+  <div class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">ROAS</div>
+  <div class="font-bold text-on-surface text-lg">3× <span class="text-primary text-sm">↑</span></div>
+</div>
+<div class="px-6 py-4">
+  <div class="font-label-sm text-label-sm text-on-surface-variant uppercase mb-1">Cost/Result</div>
+  <div class="font-bold text-on-surface text-lg">−42% <span class="text-primary text-sm">↓</span></div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<style>
+#dm-reach-line, #dm-roas-line { transition: stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1); }
+.dm-graph-dot, .dm-graph-dot-roas { transition: opacity 0.3s ease; }
+#dm-reach-area, #dm-roas-area { transition: opacity 0.6s ease 1.4s; }
+#dm-tooltip { transition: opacity 0.4s ease 2s; }
+</style>
+
+<script>
+(function(){
+  var svg = document.getElementById('dm-growth-svg');
+  if (!svg) return;
+  var rLine = document.getElementById('dm-reach-line');
+  var oLine = document.getElementById('dm-roas-line');
+  var rArea = document.getElementById('dm-reach-area');
+  var oArea = document.getElementById('dm-roas-area');
+  var tip   = document.getElementById('dm-tooltip');
+  var rDots = document.querySelectorAll('.dm-graph-dot');
+  var oDots = document.querySelectorAll('.dm-graph-dot-roas');
+
+  var rLen = rLine.getTotalLength();
+  var oLen = oLine.getTotalLength();
+  rLine.style.strokeDasharray = rLen;
+  rLine.style.strokeDashoffset = rLen;
+  oLine.style.strokeDasharray = oLen + ' ' + oLen;
+  oLine.style.strokeDashoffset = oLen;
+
+  var triggered = false;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting || triggered) return;
+      triggered = true;
+
+      rLine.style.strokeDashoffset = 0;
+      setTimeout(function(){ oLine.style.strokeDashoffset = 0; }, 200);
+
+      rArea.style.opacity = 1;
+      oArea.style.opacity = 1;
+
+      rDots.forEach(function(d,i){
+        setTimeout(function(){ d.style.opacity = 1; }, 400 + i * 250);
+      });
+      oDots.forEach(function(d,i){
+        setTimeout(function(){ d.style.opacity = 1; }, 600 + i * 250);
+      });
+
+      setTimeout(function(){ tip.style.opacity = 1; }, 2000);
+
+      document.querySelectorAll('.dm-counter').forEach(function(el){
+        var target = parseFloat(el.dataset.target);
+        var suffix = el.dataset.suffix || '';
+        var isFloat = el.dataset.target.includes('.');
+        var duration = 1600;
+        var start = performance.now();
+        function tick(now){
+          var p = Math.min((now - start)/duration, 1);
+          var eased = 1 - Math.pow(1-p, 3);
+          var val = target * eased;
+          el.textContent = (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+
+      obs.disconnect();
+    });
+  }, { threshold: 0.3 });
+
+  obs.observe(svg);
+})();
+</script>
+
+<!-- Pricing -->
+<section class="py-20 bg-surface-container-lowest" id="pricing">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-12">
+<span class="inline-block px-4 py-1 mb-6 rounded-full bg-primary/10 border border-primary/20 text-primary font-label-sm text-label-sm uppercase">Pricing</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">Pricing Plans</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Monthly retainer packages. Ad spend budget is separate — you control how much goes to the platforms.</p>
+</div>
+<div class="grid lg:grid-cols-3 gap-gutter">
+
+<!-- Starter -->
+<div class="glass-card rounded-xl p-8 flex flex-col">
+<h3 class="font-headline-md text-headline-md mb-2">Starter</h3>
+<p class="text-on-surface-variant mb-6">Best for small businesses and new pages starting with ads.</p>
+<div class="font-display-lg text-display-lg text-primary mb-1">$199</div>
+<p class="text-on-surface-variant text-sm mb-6">/ month + ad spend</p>
+<ul class="space-y-3 text-on-surface-variant mb-8 flex-1">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>1 ad campaign (Facebook or Instagram)</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Up to 3 ad creatives</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Audience setup & targeting</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Weekly performance report</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Pixel setup (one-time)</li>
+</ul>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505?text=I%20am%20interested%20in%20the%20Starter%20digital%20marketing%20plan" rel="noopener noreferrer" target="_blank">Select Plan</a>
+</div>
+
+<!-- Growth (Featured) -->
+<div class="glass-card-featured rounded-xl p-8 flex flex-col relative">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-secondary-container text-white font-label-sm text-label-sm font-bold rounded-full uppercase tracking-widest whitespace-nowrap">Most Popular</div>
+<h3 class="font-headline-md text-headline-md mb-2 mt-4">Growth</h3>
+<p class="text-on-surface-variant mb-6">Best for growing businesses that want consistent results and reach.</p>
+<div class="font-display-lg text-display-lg text-primary mb-1">$399</div>
+<p class="text-on-surface-variant text-sm mb-6">/ month + ad spend</p>
+<ul class="space-y-3 text-on-surface-variant mb-8 flex-1">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Up to 3 campaigns (FB + Instagram)</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Up to 8 ad creatives per month</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Retargeting & lookalike audiences</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Post boosting (4 posts/month)</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Page management (12 posts/month)</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Weekly report + monthly review call</li>
+</ul>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505?text=I%20am%20interested%20in%20the%20Growth%20digital%20marketing%20plan" rel="noopener noreferrer" target="_blank">Select Plan</a>
+</div>
+
+<!-- Scale -->
+<div class="glass-card rounded-xl p-8 flex flex-col">
+<h3 class="font-headline-md text-headline-md mb-2">Scale</h3>
+<p class="text-on-surface-variant mb-6">Best for ecommerce and businesses with higher ad budgets.</p>
+<div class="font-display-lg text-display-lg text-primary mb-1">$699+</div>
+<p class="text-on-surface-variant text-sm mb-6">/ month + ad spend</p>
+<ul class="space-y-3 text-on-surface-variant mb-8 flex-1">
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Unlimited campaigns</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Full creative production (15+ assets)</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Full page management (daily)</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Catalogue & dynamic product ads</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Dedicated account manager</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-secondary-container text-sm mt-1">check_circle</span>Priority support & bi-weekly calls</li>
+</ul>
+<a class="w-full py-3 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-center" href="https://wa.me/8801410007505?text=I%20am%20interested%20in%20the%20Scale%20digital%20marketing%20plan" rel="noopener noreferrer" target="_blank">Select Plan</a>
+</div>
+
+</div>
+<p class="mt-6 text-center text-on-surface-variant font-body-md">Not sure which plan fits? <a class="text-secondary-container hover:underline" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">Message us on WhatsApp</a> and we'll recommend the right option.</p>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="glass-card rounded-xl p-12 text-center">
+<h2 class="font-display-lg text-display-lg mb-6">Ready to run your first campaign?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">Share your goal and budget. We'll build the strategy, design the ads, and launch within 48 hours.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a class="px-10 py-4 bg-primary-container text-on-primary-container font-bold rounded-lg primary-glow text-body-md transition-all inline-block text-center" href="https://wa.me/8801410007505?text=I%20want%20to%20start%20a%20digital%20marketing%20campaign" rel="noopener noreferrer" target="_blank">Start a Campaign</a>
+<a class="px-10 py-4 border border-secondary-container text-secondary-container font-bold rounded-lg hover:bg-secondary-container/10 transition-all inline-block text-center" href="services.html">View All Services</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col md:flex-row justify-between items-start gap-10 mb-10">
+<div class="flex flex-col gap-3 max-w-xs">
+<div class="text-headline-md font-headline-md font-bold text-on-surface">Inletix</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Complete IT solutions for modern businesses — websites, software, ecommerce, and reliable support.</p>
+<a class="font-body-md text-body-md text-secondary-container hover:underline transition-colors w-fit" href="https://wa.me/8801410007505" rel="noopener noreferrer" target="_blank">+880 1410-007505</a>
+</div>
+<div class="flex flex-col sm:flex-row gap-10">
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Services</p>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="web-development.html">Web Development</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="software-development.html">Software Development</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="digital-marketing.html">Digital Marketing</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="services.html">All Services</a>
+</div>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-4">Company</p>
+<div class="flex flex-col gap-3">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="portfolio.html">Portfolio</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="about-us.html">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-outline-variant/20">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2026 Inletix. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+
+<a href="https://wa.me/8801410007505" target="_blank" rel="noopener noreferrer" class="whatsapp-fab fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center" aria-label="Chat on WhatsApp">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.867-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+</a>
+<button id="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-24 right-6 z-50 w-11 h-11 rounded-full flex items-center justify-center shadow-lg border border-outline-variant/40 text-on-surface-variant" style="background:rgba(12,12,12,0.92);backdrop-filter:blur(8px)" aria-label="Scroll to top">
+<span class="material-symbols-outlined text-xl">arrow_upward</span>
+</button>
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('mobile-menu-icon');
+    if (!menu || !icon) return;
+    menu.classList.toggle('hidden');
+    icon.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+}
+function toggleServicesDropdown() {
+    var menu = document.getElementById('mobile-services-dd');
+    var icon = document.getElementById('services-dd-icon');
+    var open = menu.style.display === 'flex';
+    menu.style.display = open ? 'none' : 'flex';
+    icon.textContent = open ? 'expand_more' : 'expand_less';
+}
+const _stb = document.getElementById('scroll-top-btn');
+if (_stb) window.addEventListener('scroll', () => _stb.classList.toggle('visible', scrollY > 400), {passive:true});
+</script>
+</body>
+</html>
